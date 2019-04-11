@@ -1,0 +1,35 @@
+<body id="background-logo">
+<nav class="navbar navbar-dark navbar-expand-md fixed-top">
+  <div class="container"><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navcol-1">
+      <ul class="nav navbar-nav d-flex flex-grow-1 justify-content-between align-items-center">
+        <li class="nav-item" role="presentation"><a class="nav-link"><img id="logo" src="https://36711.apps.zdusercontent.com/36711/assets/1506469900-fd7a54462c6615af92812b8a1a25884b/logo.png" height="32vh"></a></li>
+        <li class="nav-item" role="presentation"><a id = "join" class="nav-link" routerLink="/register">Join</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<section id="login-form">
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+      <div class="row">
+        <div class="col-2">
+        </div>
+        <div class="col-md-8 col-sm-12">
+          <form>
+            <div class="form-group"><input class="form-control login-details" type="password" placeholder="Email Address"></div>
+            <div class="form-group"><input class="form-control login-details" type="password" placeholder="Password"></div>
+            <div class="form-group"><button class="btn" type="submit" id="login-btn" (click)="onLogin()">Login</button></div>
+          </form>
+        </div>
+        <div class="col-2">
+        </div>
+      </div>
+    </div>
+    <div class="col-4"></div>
+  </div>
+</section>
+</body>
+
+

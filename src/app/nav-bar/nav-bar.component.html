@@ -1,0 +1,33 @@
+<div id = "navbar">
+  <div class="row">
+    <!--<div class="col-1"><img src="https://36711.apps.zdusercontent.com/36711/assets/1506469900-fd7a54462c6615af92812b8a1a25884b/logo.png" height="32vh" id="logo" routerLink="/home"></div>-->
+    <!--<div class="col-8">-->
+      <!--<form #f="ngForm" class="d-flex"  (ngSubmit)="onSearch(f)"><input id= "search-bar" class="form-control" type="text" placeholder="Search GIFS" name="searchTerm" ngModel><button class="btn btn-primary" type="submit" id="search-btn"><i class="fa fa-search"></i></button></form>-->
+    <!--</div>-->
+    <!--<div class="col-1 mt-1"><i class="fa fa-user-o" id="profile-logo"></i></div>-->
+    <div class="col-2"></div>
+    <div class="col-8 d-flex flex-grow-1 flex-fill justify-content-between align-items-center nav-content">
+      <img src="https://36711.apps.zdusercontent.com/36711/assets/1506469900-fd7a54462c6615af92812b8a1a25884b/logo.png" height="32vh" id="logo" routerLink="/home">
+      <!--<ul class="list-inline d-flex flex-grow-1 flex-fill justify-content-around align-items-center nav-links">-->
+        <!--<li class="list-inline-item"><a routerLink="/gif/search/reactions">Reactions</a><hr></li>-->
+        <!--<li class="list-inline-item"><a routerLink="/gif/search/entertainment">Entertainment</a><hr></li>-->
+        <!--<li class="list-inline-item"><a routerLink="/gif/search/sports">Sports</a><hr></li>-->
+        <!--<li class="list-inline-item"><a routerLink="/gif/search/stickers">Stickers</a><hr></li>-->
+        <!--<li class="list-inline-item"><a routerLink="/gif/search/artists">Artists</a><hr></li>-->
+      <!--</ul>-->
+      <i class="fa fa-user-o" id="profile-logo" routerLink="/profile"></i>
+    </div>
+    <div class="col-2"></div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-2"></div>
+    <div class="col-8 nav-content">
+      <form #f="ngForm" class="d-flex"  (ngSubmit)="onSearch(f)">
+        <input id= "search-bar" class="form-control" type="text" placeholder="Search GIFS" name="searchTerm" ngModel>
+        <button class="btn" type="submit" id="search-btn"><i class="fa fa-search search-logo"></i></button>
+      </form>
+    </div>
+    <div class="col-2"></div>
+  </div>
+</div>
+

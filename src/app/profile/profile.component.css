@@ -1,0 +1,51 @@
+body{
+  height:100vh;
+  background-color:black;
+  overflow-x: hidden;
+}
+
+#link-form{
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  background-color: rgb(38,38,38);
+  padding: 3%;
+}
+
+#link-form label {
+  font-size: small;
+}
+
+.form-header{
+  font-weight: bolder;
+  font-size: 2.5rem;
+}
+
+.basic-addon2{
+  background-color: rgb(129,0,255)!important;
+  color: white;
+}
+
+#save-btn{
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  /*background-color: rgb(50,50,50);*/
+}
+
+#profile-pic{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.change-pic{
+  color: white;
+  background-color: rgb(97,87, 255);
+  border: 0;
+  border-radius: 0;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 1.2vw;
+  text-align: center;
+}

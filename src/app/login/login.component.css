@@ -1,0 +1,40 @@
+#background-logo {
+  height:100vh;
+  background-image:url("https://media.giphy.com/media/26xBMVOzata2DnN7i/giphy.gif");
+  /*background-image: url("https://media.giphy.com/media/xT1XGVp95GDPgFYmUE/source.gif");*/
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-position:center bottom;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+#logo {
+  line-height:0;
+}
+
+#join{
+  font-size: 1.3em;
+  color:rgba(248,248,248,0.8);
+}
+
+#login-form {
+  padding-top:35vh;
+}
+
+.login-details{
+  border-radius: 0!important;
+}
+
+#login-btn {
+  width:100%;
+  background-color:rgb(46,46,46);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 0!important;
+}
+
+::placeholder{
+  font-size: 1.5vh;
+}

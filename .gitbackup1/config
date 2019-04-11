@@ -1,0 +1,11 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	sharedrepository = 1
+[receive]
+	denyNonFastforwards = true
+[remote "origin"]
+	url = git@github.com:m7saikat/wbdv-sp19-project-angular-client.git
+	fetch = +refs/heads/*:refs/remotes/origin/*

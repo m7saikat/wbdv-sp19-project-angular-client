@@ -1,0 +1,29 @@
+body{
+  height:100vh;
+  background-color:black;
+  overflow-x: hidden;
+  /*overflow-y: hidden;*/
+}
+
+.gif-cards{
+  border-radius: 0;
+  transition: transform .3s;
+}
+
+.gif-cards:hover {
+  transform: scale(0.9); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.gif-cards-body{
+  padding: 0;
+  margin: 0;
+
+}
+
+#searched-gif-header{
+  /*color:#A6A6A6;*/
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bolder;
+}
+
