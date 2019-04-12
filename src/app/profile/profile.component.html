@@ -10,7 +10,7 @@
     <div class="col-6">
       <div>
         <div>
-          <form id="link-form">
+          <form #f="ngForm" id="link-form">
             <div class="d-flex flex-grow-1 flex-fill justify-content-between align-items-center mb-4">
               <span class="form-header">Profile</span>
             </div>
@@ -18,7 +18,7 @@
               <label for="username" class="col-sm-2 col-form-label">Username</label>
               <div class="col-sm-10">
                 <div class="input-group mb-3">
-                  <input type="text" class="form-control" id="username">
+                  <input type="text" class="form-control" id="username" name="username" ngModel value="{{user? user.username? user.username: '': ''}}">
                 </div>
               </div>
             </div>
@@ -26,7 +26,7 @@
               <label for="email-address" class="col-sm-2 col-form-label">Email Address</label>
               <div class="col-sm-10">
                 <div class="input-group mb-3">
-                  <input type="text" class="form-control" id="email-address">
+                  <input type="text" class="form-control" id="email-address" name="email-address" ngModel value="{{user? user.email? user.email: '': ''}}">
                 </div>
               </div>
             </div>
@@ -34,7 +34,7 @@
               <label for="first-name" class="col-sm-2 col-form-label">First Name</label>
               <div class="col-sm-10">
                 <div class="input-group mb-3">
-                  <input type="text" class="form-control" id="first-name">
+                  <input type="text" class="form-control" id="first-name" value="{{user? user.firstName? user.firstName: '': ''}}">
                 </div>
               </div>
             </div>
@@ -42,7 +42,7 @@
               <label for="last-name" class="col-sm-2 col-form-label">Last Name</label>
               <div class="col-sm-10">
                 <div class="input-group mb-3">
-                  <input type="text" class="form-control" id="last-name">
+                  <input type="text" class="form-control" id="last-name" value="{{user? user.lastName? user.lastName: '': ''}}">
                 </div>
               </div>
             </div>

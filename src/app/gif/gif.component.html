@@ -5,11 +5,11 @@
     <div class="col-2"></div>
     <div class="col-8">
       <div class="row">
-        <div class="col-3 source-div">
+        <div class="col-sm-1 col-md-3 source-div mb-4">
           <h5>SOURCE</h5>
           <a class="source-url" href="{{gif.source}}">{{gif.source.substring(8)}}</a>
         </div>
-        <div class="col-6">
+        <div class="col-sm-10 col-md-6 mb-2">
           <div *ngIf="!isCopyLinkClicked">
             <h5>{{gif.title.toUpperCase()}}</h5>
             <div class="card mt-2 border-0 gif-cards">
@@ -71,9 +71,9 @@
             </form>
           </div>
         </div>
-        <div class="col-3">
+        <div class="col-sm-1 col-md-3">
           <br>
-          <h5 class="share-items" (click)="onCopyLinkClick()"><i class="fa fa-link mr-3"></i> Copy Link</h5>
+          <h5 class="share-items" (click)="onCopyLinkClick()" *ngIf="!isCopyLinkClicked"><i class="fa fa-link mr-2"></i> Copy Link</h5>
         </div>
       </div>
     </div>
