@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {CookieService} from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
@@ -6,13 +7,22 @@ import { Injectable } from '@angular/core';
 export class UserService {
 
   backendURL = '';
-  constructor() {
-    this.backendURL = 'http://localhost:3000/api';
+
+  constructor(private cookieService: CookieService) {
+    this.backendURL = 'http://localhost:4000/api';
   }
 
-  getUser(userId) {
-    return fetch(this.backendURL + "/student/"+123, {
-      method: "GET"
+  getUser() {
+    let info = {
+      username : this.cookieService.get("username")
+    }
+    return fetch(this.backendURL+"/user/profile", {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(info)
     }).then((response) => response.json());
   }
 
@@ -21,8 +31,7 @@ export class UserService {
       method: "POST",
       credentials: "include",
       headers: {
-        "Content-Type": "application/json",
-        // "Content-Type": "application/x-www-form-urlencoded",
+        "Content-Type": "application/json"
       },
       body: JSON.stringify(user)
     }).then((response) => response.json());
@@ -33,20 +42,20 @@ export class UserService {
       method: "POST",
       credentials: "include",
       headers: {
-        "Content-Type": "application/json",
-        // "Content-Type": "application/x-www-form-urlencoded",
+        "Content-Type": "application/json"
       },
       body: JSON.stringify(user)
     }).then((response) => response.json());
   }
 
-  // getSearchedGifs(searchTerm) {
-  //   return fetch(this.giphyURL + "/v1/gifs/search"+"?"+"api_key="+this.api_Key+"&q="+searchTerm+"&limit=15").then((response) => response.json())
-  // }
-  //
-  // getGifById(gifId){
-  //   return fetch(this.giphyURL + "/v1/gifs/"+gifId+"?"+"api_key="+this.api_Key).then((response) =>
-  //     response.json()
-  //   )
-  // }
+  likeGif(info){
+    return fetch("http://localhost:4000/api/like", {
+      method: "PUT",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(info)
+    }).then((response) => response.json());
+  }
 }

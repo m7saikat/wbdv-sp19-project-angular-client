@@ -32,6 +32,8 @@ export class LoginComponent implements OnInit {
       if(response.success){
         this.isLoginSuccessful = true;
         this.cookieService.set("token", response.token);
+        this.cookieService.set("username", response.user.user.username);
+        this.cookieService.set("userId", response.user.user._id);
         setTimeout(() => {
           this.isLoginSuccessful = false;
           this.router.navigate(['home']);

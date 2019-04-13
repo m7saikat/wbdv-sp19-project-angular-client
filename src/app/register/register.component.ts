@@ -33,6 +33,8 @@ export class RegisterComponent implements OnInit {
       if(response.success){
         this.isRegisterSuccessful = true;
         this.cookieService.set("token", response.token);
+        this.cookieService.set("username", response.user.username);
+        this.cookieService.set("userId", response.user._id);
         setTimeout(() => {
           this.isRegisterSuccessful = false;
           this.router.navigate(['home']);

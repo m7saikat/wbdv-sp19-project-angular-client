@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {GiphyService} from "../services/giphy.service";
 import {Router} from "@angular/router";
 import {CookieService} from 'ngx-cookie-service';
+import {UserService} from '../services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -11,9 +12,26 @@ import {CookieService} from 'ngx-cookie-service';
 export class HomeComponent implements OnInit {
 
   gifs: any[];
-  constructor(private giphyService: GiphyService, private router: Router, private cookieService: CookieService) {
+  userLikes: any[] = [];
+  hasLikes: boolean;
+  constructor(private giphyService: GiphyService, private router: Router, private cookieService: CookieService, private userService: UserService) {
     this.giphyService.getTrending().then((response) => {
       this.gifs = response.data;
+    });
+
+    this.userService.getUser().then((response) => {
+      if (response.likes.length === 0){
+        this.hasLikes = false;
+      } else{
+        this.hasLikes = true;
+        response.likes.map((like) => {
+          this.giphyService.getGifById(like).then((gif) => {
+            this.userLikes.push(gif.data.images.fixed_height.url);
+          });
+        });
+      }
+
+
     });
   }
 
