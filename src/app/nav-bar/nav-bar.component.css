@@ -23,6 +23,12 @@ a{
   font-size:1.5em;
 }
 
+#logout-logo {
+  line-height:0;
+  color:white;
+  font-size:1.5em;
+}
+
 #search-bar {
   border-radius: 0;
   border: 0;

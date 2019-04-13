@@ -16,6 +16,30 @@ export class UserService {
     }).then((response) => response.json());
   }
 
+  registerUser(user){
+    return fetch("http://localhost:4000/register", {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+        // "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: JSON.stringify(user)
+    }).then((response) => response.json());
+  }
+
+  loginUser(user){
+    return fetch("http://localhost:4000/login", {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+        // "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: JSON.stringify(user)
+    }).then((response) => response.json());
+  }
+
   // getSearchedGifs(searchTerm) {
   //   return fetch(this.giphyURL + "/v1/gifs/search"+"?"+"api_key="+this.api_Key+"&q="+searchTerm+"&limit=15").then((response) => response.json())
   // }

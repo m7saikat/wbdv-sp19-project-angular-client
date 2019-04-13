@@ -1,14 +1,44 @@
 <body id="background-logo">
-<nav class="navbar navbar-dark navbar-expand-md fixed-top">
-  <div class="container"><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-    <div class="collapse navbar-collapse" id="navcol-1">
-      <ul class="nav navbar-nav d-flex flex-grow-1 justify-content-between align-items-center">
-        <li class="nav-item" role="presentation"><a class="nav-link"><img id="logo" src="https://36711.apps.zdusercontent.com/36711/assets/1506469900-fd7a54462c6615af92812b8a1a25884b/logo.png" height="32vh"></a></li>
-        <li class="nav-item" role="presentation"><a id = "login" class="nav-link" routerLink="/login">Login</a></li>
-      </ul>
+<!--<nav class="navbar navbar-dark navbar-expand-md fixed-top">-->
+  <!--<div class="container"><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>-->
+    <!--<div class="collapse navbar-collapse" id="navcol-1">-->
+      <!--<ul class="nav navbar-nav d-flex flex-grow-1 justify-content-between align-items-center">-->
+        <!--<li class="nav-item" role="presentation"><a class="nav-link"><img id="logo" src="https://36711.apps.zdusercontent.com/36711/assets/1506469900-fd7a54462c6615af92812b8a1a25884b/logo.png" height="32vh"></a></li>-->
+        <!--<li class="nav-item" role="presentation"><a id = "login" class="nav-link" routerLink="/login">Login</a></li>-->
+      <!--</ul>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</nav>-->
+<div id = "navbar" class="mt-3">
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-6 d-flex flex-grow-1 flex-fill justify-content-between align-items-center nav-content">
+      <img src="https://36711.apps.zdusercontent.com/36711/assets/1506469900-fd7a54462c6615af92812b8a1a25884b/logo.png" height="32vh" id="logo" routerLink="/home">
+      <span id = "login" routerLink="/login">Login</span>
+    </div>
+    <div class="col-3"></div>
+  </div>
+</div>
+<div class="row mt-3" *ngIf="isRegisterSuccessful">
+  <div class="col-3"></div>
+  <div class="col-6">
+    <div class="alert alert-success" role="alert" >
+      Registration successful
     </div>
   </div>
-</nav>
+  <div class="col-3"></div>
+</div>
+
+<div class="row mt-3" *ngIf="isRegisterUnsuccessful">
+  <div class="col-3"></div>
+  <div class="col-6">
+    <div class="alert alert-danger" role="alert" >
+      Registration failed. <span> {{errorMsg}}</span>
+    </div>
+  </div>
+  <div class="col-3"></div>
+</div>
+
 <section id="register-form">
   <div class="row">
     <div class="col-4"></div>
@@ -17,12 +47,12 @@
         <div class="col-2">
         </div>
         <div class="col-md-8 col-sm-12">
-          <form>
-            <div class="form-group"><input class="form-control register-details" type="text" placeholder="Email Address"></div>
-            <div class="form-group"><input class="form-control register-details" type="text" placeholder="Username"></div>
-            <div class="form-group"><input class="form-control register-details" type="password" placeholder="Password"></div>
-            <div class="form-group"><input class="form-control register-details" type="password" placeholder="Verify password"></div>
-            <div class="form-group"><button class="btn" type="submit" id="register-btn" (click)="onRegister()">Register</button></div>
+          <form #f="ngForm" (ngSubmit)="onRegister(f)">
+            <div class="form-group"><input class="form-control register-details" type="text" name="email" ngModel placeholder="Email Address"></div>
+            <div class="form-group"><input class="form-control register-details" type="text" name="username" ngModel placeholder="Username"></div>
+            <div class="form-group"><input class="form-control register-details" type="password" name="password" ngModel placeholder="Password"></div>
+            <div class="form-group"><input class="form-control register-details" type="password" name="verify-password" ngModel placeholder="Verify password"></div>
+            <div class="form-group"><button class="btn" type="submit" id="register-btn" >Register</button></div>
           </form>
         </div>
         <div class="col-2">

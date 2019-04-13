@@ -12,6 +12,7 @@ import {FormsModule} from "@angular/forms";
 import { GifComponent } from './gif/gif.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ProfileComponent } from './profile/profile.component';
+import {CookieService} from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { ProfileComponent } from './profile/profile.component';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
