@@ -4,6 +4,7 @@ import {NgForm} from '@angular/forms';
 import {UserService} from '../services/user.service';
 import {CookieService} from 'ngx-cookie-service';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -30,10 +31,10 @@ export class LoginComponent implements OnInit {
       password: f.value.password
     }).then((response) => {
       if(response.success){
+
+        this.userService.setSession(response);
         this.isLoginSuccessful = true;
-        this.cookieService.set("token", response.token);
-        this.cookieService.set("username", response.user.user.username);
-        this.cookieService.set("userId", response.user.user._id);
+
         setTimeout(() => {
           this.isLoginSuccessful = false;
           this.router.navigate(['home']);

@@ -7,13 +7,14 @@ import {SearchedGifsComponent} from "./searched-gifs/searched-gifs.component";
 import {GifComponent} from "./gif/gif.component";
 import {AboutUsComponent} from './about-us/about-us.component';
 import {ProfileComponent} from './profile/profile.component';
+import {AuthGuardService} from './auth/auth-guard.service';
 
 const routes: Routes = [
   {path: 'gif/:gifId', component: GifComponent},
   {path: 'gif/search/:searchTerm', component: SearchedGifsComponent},
   {path: 'team', component: AboutUsComponent},
   {path: 'gif/:gifId', component: GifComponent},
-  {path: 'home', component: HomeComponent},
+  {path: 'home', component: HomeComponent, canActivate: [AuthGuardService]},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'profile', component: ProfileComponent},

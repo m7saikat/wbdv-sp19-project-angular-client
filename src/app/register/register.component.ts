@@ -3,6 +3,7 @@ import {Router} from "@angular/router";
 import {NgForm} from '@angular/forms';
 import {UserService} from '../services/user.service';
 import {CookieService} from 'ngx-cookie-service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-register',
@@ -32,9 +33,8 @@ export class RegisterComponent implements OnInit {
     }).then((response) => {
       if(response.success){
         this.isRegisterSuccessful = true;
-        this.cookieService.set("token", response.token);
-        this.cookieService.set("username", response.user.username);
-        this.cookieService.set("userId", response.user._id);
+        this.userService.setSession(response);
+
         setTimeout(() => {
           this.isRegisterSuccessful = false;
           this.router.navigate(['home']);
