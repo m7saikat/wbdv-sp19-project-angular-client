@@ -15,10 +15,27 @@
         <!--<li class="list-inline-item"><a routerLink="/gif/search/stickers">Stickers</a><hr></li>-->
         <!--<li class="list-inline-item"><a routerLink="/gif/search/artists">Artists</a><hr></li>-->
       <!--</ul>-->
-      <div class="d-flex align-items-center">
-        <i class="fa fa-user-o mr-3" id="profile-logo" routerLink="/profile"></i>
-        <i class="fa fa-sign-out" id="logout-logo" (click)="onLogout()"></i>
+      <div class="d-flex align-items-center" *ngIf="cookieValue == ''; else loggedIn">
+        <button class="btn" id = "login-btn" routerLink="/login">Log In</button>
       </div>
+      <ng-template #loggedIn>
+        <!--<div class="d-flex align-items-center">-->
+            <!--<span class="welcome-msg mr-3">Welcome {{cookieValue}}</span>-->
+            <!--<i class="fa fa-upload mr-3" id="upload-logo"></i>-->
+            <!--<i class="fa fa-user-o mr-3" id="profile-logo" routerLink="/profile"></i>-->
+            <!--<i class="fa fa-sign-out" id="logout-logo" (click)="onLogout()"></i>-->
+        <!--</div>-->
+        <div class="dropdown">
+          <button class="btn dropdown-toggle" type="button" id="dropdown-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{cookieValue}}
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <button class="btn dropdown-item" type="button" routerLink="/upload"><i class="fa fa-upload mr-2" id="upload-logo"></i> Upload</button>
+            <button class="btn dropdown-item" type="button" routerLink="/profile"><i class="fa fa-user-o mr-2" id="profile-logo" ></i> Profile</button>
+            <button class="btn dropdown-item" type="button" (click)="onLogout()"><i class="fa fa-sign-out mr-2" id="logout-logo" ></i> Logout</button>
+          </div>
+        </div>
+      </ng-template>
 
     </div>
     <div class="col-2"></div>

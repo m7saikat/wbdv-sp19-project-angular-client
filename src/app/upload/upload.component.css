@@ -1,0 +1,50 @@
+body{
+  height:100vh;
+  background-color:black;
+  overflow-x: hidden;
+}
+
+.jumbotron{
+  background: linear-gradient(135deg,#6157ff,#1fc1ca);
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  border-radius: 0;
+}
+
+h1{
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.upload-info{
+  font-size: 1.2rem;
+}
+
+.upload-form{
+  padding: 5vh;
+}
+
+.upload-label{
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+::placeholder{
+  font-size: 0.8rem;
+}
+
+.upload-details{
+  border-radius: 0!important;
+}
+
+#upload-btn {
+  width:100%;
+  background-color:rgb(46,46,46);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 0!important;
+  font-size: 0.8rem;
+}
+
+

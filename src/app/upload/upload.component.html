@@ -1,0 +1,25 @@
+<body>
+  <app-nav-bar></app-nav-bar>
+  <div>
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-6">
+        <div class="jumbotron">
+          <h1 class="text-center">UPLOAD</h1>
+          <p class="lead text-center upload-info">Upload your GIF collection here and share with the world.</p>
+          <hr class="my-4">
+          <div class="upload-form">
+            <form #f="ngForm">
+              <div class="form-group">
+                <label for="upload-box" class="upload-label text-uppercase">Copy and paste any GIF URL</label>
+                <input class="form-control upload-details mt-2" id="upload-box" type="text" name="gifURL" ngModel placeholder="Copy and paste video, GIF, or image URL">
+              </div>
+              <div class="form-group"><button class="btn" type="submit" id="upload-btn">Upload</button></div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-3"></div>
+    </div>
+  </div>
+</body>

@@ -13,6 +13,7 @@ import { GifComponent } from './gif/gif.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ProfileComponent } from './profile/profile.component';
 import {CookieService} from 'ngx-cookie-service';
+import { UploadComponent } from './upload/upload.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {CookieService} from 'ngx-cookie-service';
     SearchedGifsComponent,
     GifComponent,
     AboutUsComponent,
-    ProfileComponent
+    ProfileComponent,
+    UploadComponent
   ],
   imports: [
     BrowserModule,

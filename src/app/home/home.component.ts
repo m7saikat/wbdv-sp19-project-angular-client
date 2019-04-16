@@ -14,25 +14,30 @@ export class HomeComponent implements OnInit {
   gifs: any[];
   userLikes: any[] = [];
   hasLikes: boolean;
+  cookieValue = "";
   constructor(private giphyService: GiphyService, private router: Router, private cookieService: CookieService, private userService: UserService) {
+
+    this.cookieValue = cookieService.get("username");
+
     this.giphyService.getTrending().then((response) => {
       this.gifs = response.data;
     });
 
-    this.userService.getUser().then((response) => {
-      if (response.likes.length === 0){
-        this.hasLikes = false;
-      } else{
-        this.hasLikes = true;
-        response.likes.map((like) => {
-          this.giphyService.getGifById(like).then((gif) => {
-            this.userLikes.push(gif.data.images.fixed_height.url);
+    if(this.cookieValue !== ''){
+      this.userService.getUser().then((response) => {
+        if (response.likes.length === 0){
+          this.hasLikes = false;
+        } else{
+          this.hasLikes = true;
+          response.likes.map((like) => {
+            this.giphyService.getGifById(like).then((gif) => {
+              this.userLikes.push(gif.data.images.fixed_height.url);
+            });
           });
-        });
-      }
+        }
+      });
+    }
 
-
-    });
   }
 
   ngOnInit() {

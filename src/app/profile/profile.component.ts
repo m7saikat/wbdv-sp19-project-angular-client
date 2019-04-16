@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {UserService} from '../services/user.service';
 import {NgForm} from '@angular/forms';
 import {CookieService} from 'ngx-cookie-service';
+import {GiphyService} from '../services/giphy.service';
 
 @Component({
   selector: 'app-profile',
@@ -16,7 +17,9 @@ export class ProfileComponent implements OnInit {
   firstName = '';
   lastName = '';
   isLoaded = false;
-  constructor(private userService: UserService, private cookieService: CookieService) {
+  userLikes: any[] = [];
+  hasLikes: boolean;
+  constructor(private userService: UserService, private cookieService: CookieService, private giphyService: GiphyService) {
     this.userService.getUser().then((response) => {
       console.log(response);
       this.username = response.username;
@@ -25,6 +28,17 @@ export class ProfileComponent implements OnInit {
       this.lastName = response.lastName;
       // this.user = response;
       this.isLoaded = true;
+
+      if (response.likes.length === 0){
+        this.hasLikes = false;
+      } else{
+        this.hasLikes = true;
+        response.likes.map((like) => {
+          this.giphyService.getGifById(like).then((gif) => {
+            this.userLikes.push(gif.data.images.fixed_height.url);
+          });
+        });
+      }
     });
   }
 
