@@ -23,6 +23,12 @@ a{
   font-size:1rem;
 }
 
+#team-logo {
+  line-height:0;
+  color: black;
+  font-size:1rem;
+}
+
 #logout-logo {
   line-height:0;
   color: black;
