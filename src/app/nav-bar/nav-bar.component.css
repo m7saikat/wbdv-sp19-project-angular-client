@@ -58,6 +58,12 @@ a{
   outline: 0!important;
 }
 
+.search-btn {
+  background-image:linear-gradient(45deg, rgb(153, 51, 255) 0%, rgb(255, 102, 102) 50%, rgb(153, 51, 255) 100%);
+  border-radius: 0;
+  outline: 0!important;
+}
+
 .nav-links{
   /*box-sizing: border-box;*/
   /*margin: 0;*/
@@ -110,6 +116,13 @@ hr{
   color: white;
   font-family: 'Poppins', sans-serif;
   border-radius: 0!important;
+}
+
+.user-btn {
+  background: #febbbb; /* Old browsers */
+  background: -moz-linear-gradient(top, #febbbb 0%, #fe9090 36%, #ff5c5c 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #febbbb 0%,#fe9090 36%,#ff5c5c 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #febbbb 0%,#fe9090 36%,#ff5c5c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
 

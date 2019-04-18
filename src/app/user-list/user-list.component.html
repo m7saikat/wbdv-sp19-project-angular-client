@@ -1,0 +1,25 @@
+<body>
+  <app-nav-bar></app-nav-bar>
+  <div class="container">
+    <div class="row">
+      <div class="col-1">
+      </div>
+      <div class="col-10">
+        <ul class="list-group">
+
+          <li class="list-group-item list-group-item-primary list" *ngFor="let u of searchedUsers">
+            <div class="float-left">
+              <i class="fas fa-user"></i>     {{u.firstName}} {{u.lastName}}
+            </div>
+            <div class="float-right">
+              <a (click)="goToUser(u._id)">@{{u.username}}</a>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+      <div class="col-1">
+      </div>
+    </div>
+  </div>
+</body>

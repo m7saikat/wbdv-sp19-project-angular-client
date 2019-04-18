@@ -108,4 +108,23 @@ export class UserService {
       body: JSON.stringify(info)
     }).then((response) => response.json());
   }
+
+  getAllUsers = () => {
+    return fetch(this.backendURL + '/user', {
+      method: 'get',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then((response) => response.json());
+  }
+  getUserById = (userId) => {
+    return fetch(this.backendURL + '/user/'+ userId, {
+      method: 'get',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then((response) => response.json());
+  }
 }

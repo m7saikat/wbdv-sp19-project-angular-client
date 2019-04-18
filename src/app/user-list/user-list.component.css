@@ -1,0 +1,12 @@
+.list {
+  background-color:rgb(46,46,46);
+  color: white;
+}
+
+
+body{
+  height:100vh;
+  background-color:black;
+  overflow-x: hidden;
+  /*overflow-y: hidden;*/
+}

@@ -29,9 +29,9 @@ export class ProfileComponent implements OnInit {
       // this.user = response;
       this.isLoaded = true;
 
-      if (response.likes.length === 0){
+      if (response.likes.length === 0) {
         this.hasLikes = false;
-      } else{
+      } else {
         this.hasLikes = true;
         response.likes.map((like) => {
           this.giphyService.getGifById(like).then((gif) => {
