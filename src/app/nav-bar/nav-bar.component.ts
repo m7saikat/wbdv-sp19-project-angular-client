@@ -11,16 +11,16 @@ import {CookieService} from 'ngx-cookie-service';
 })
 export class NavBarComponent implements OnInit {
 
-  cookieValue = "";
+  cookieValue = '';
   constructor(private router: Router, private userService: UserService, private cookieService: CookieService) {
-    this.cookieValue = cookieService.get("username");
+    this.cookieValue = cookieService.get('username');
   }
 
   ngOnInit() {
   }
 
-  onSearch(f: NgForm){
-    this.router.navigate(['gif','search',f.value.searchTerm])
+  onSearch(f: NgForm) {
+    this.router.navigate(['gif', 'search', f.value.searchTerm]);
   }
 
   onLogout(){

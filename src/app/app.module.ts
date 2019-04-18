@@ -14,6 +14,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ProfileComponent } from './profile/profile.component';
 import {CookieService} from 'ngx-cookie-service';
 import { UploadComponent } from './upload/upload.component';
+import { UserListComponent } from './user-list/user-list.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { UploadComponent } from './upload/upload.component';
     GifComponent,
     AboutUsComponent,
     ProfileComponent,
-    UploadComponent
+    UploadComponent,
+    UserListComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

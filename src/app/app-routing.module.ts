@@ -9,6 +9,9 @@ import {AboutUsComponent} from './about-us/about-us.component';
 import {ProfileComponent} from './profile/profile.component';
 import {AuthGuardService} from './auth/auth-guard.service';
 import {UploadComponent} from './upload/upload.component';
+import {UserListComponent} from './user-list/user-list.component';
+import {UserComponent} from './user/user.component';
+
 
 const routes: Routes = [
   {path: 'gif/:gifId', component: GifComponent},
@@ -20,7 +23,9 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService]},
-  {path: '', pathMatch: "full", component: HomeComponent},
+  {path: 'user/:userName', pathMatch: 'full', component: UserListComponent},
+  {path: 'search/user/:userId', pathMatch: 'full', component: UserComponent},
+  {path: '', pathMatch: 'full', component: HomeComponent},
   {path: '**', component: LoginComponent}
   ];
 
