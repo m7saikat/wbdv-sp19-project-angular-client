@@ -14,7 +14,9 @@ export class UserComponent implements OnInit {
   user;
   hasLikes = false;
   userLikes = [];
-  constructor(private userService: UserService, private activatedRoute: ActivatedRoute,  private giphyService: GiphyService) {
+  constructor(private userService: UserService,
+              private activatedRoute: ActivatedRoute,
+              private giphyService: GiphyService) {
     this.activatedRoute.params.subscribe((params) => {
       this.userId = params.userId;
       this.userService.getUserById(this.userId).then((response) => {
@@ -31,8 +33,6 @@ export class UserComponent implements OnInit {
           });
         }
       });
-
-
     });
   }
 

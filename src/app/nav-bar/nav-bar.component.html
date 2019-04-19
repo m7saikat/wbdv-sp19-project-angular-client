@@ -43,12 +43,24 @@
   </div>
   <div class="row mt-2">
     <div class="col-2"></div>
-    <div class="col-8 nav-content">
-      <form #f="ngForm" class="d-flex"  (ngSubmit)="onSearch(f)">
-          <button class="btn search-btn" type="submit" [ngStyle]="{'color':'white'}"><i class="fa fa-users search-logo" aria-hidden="true"></i></button>
-          <input id= "search-bar" class="form-control" type="text" placeholder="Search GIFS or Users" name="searchTerm" ngModel>
-          <button class="btn" type="submit" id="search-btn"><i class="fa fa-search search-logo"></i></button>
-      </form>
+    <div class="col-8">
+      <!--<form class="d-flex">-->
+      <input id= "search-bar" class="form-control" type="text" placeholder="Search GIFS or Users" [(ngModel)]="searchTerm">
+      <span class="dropdown float-right">
+        <button class="btn dropdown-toggle" type="button"
+                id="dropdown-btn" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+          Search by
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <button class="btn dropdown-item" id="logo"(click)="searchGif()"><img src="https://36711.apps.zdusercontent.com/36711/assets/1506469900-fd7a54462c6615af92812b8a1a25884b/logo.png" height="32vh" id="logo" routerLink="/home">GIFs</button>
+          <button class="btn dropdown-item" (click)="searchUsers()">
+            <i class="fa fa-users" aria-hidden="true"></i>  Users</button>
+        </div>
+      </span>
+
+
+      <!--</form>-->
     </div>
     <div class="col-2"></div>
   </div>
