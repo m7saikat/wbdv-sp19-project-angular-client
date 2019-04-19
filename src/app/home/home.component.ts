@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
           this.hasLikes = true;
           response.likes.map((like) => {
             this.giphyService.getGifById(like).then((gif) => {
-              this.userLikes.push(gif.data.images.fixed_height.url);
+              this.userLikes.push(gif);
             });
           });
         }
