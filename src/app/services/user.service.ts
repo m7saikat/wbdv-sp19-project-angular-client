@@ -122,4 +122,33 @@ export class UserService {
       }
     }).then((response) => response.json());
   }
+
+  follow = (followerId) => {
+    return fetch(this.backendURL + '/follow', {
+      method: 'put',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body : JSON.stringify({
+        followId: followerId
+      })
+    }).then((response) => response.json());
+  }
+  unfollow = (followerId) => {
+    console.log("inside unfollow");
+    return fetch(this.backendURL + '/unfollow', {
+      method: 'put',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body : JSON.stringify({
+        followId: followerId
+      })
+    }).then((response) => {
+      console.log(response);
+      response.json();
+    });
+  }
 }

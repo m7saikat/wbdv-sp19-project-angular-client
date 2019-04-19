@@ -11,10 +11,12 @@ import {AuthGuardService} from './auth/auth-guard.service';
 import {UploadComponent} from './upload/upload.component';
 import {UserListComponent} from './user-list/user-list.component';
 import {UserComponent} from './user/user.component';
+import {NewsFeedComponent} from './news-feed/news-feed.component';
 
 
 const routes: Routes = [
   {path: 'gif/:gifId', component: GifComponent},
+  {path: 'newsfeed', component: NewsFeedComponent},
   {path: 'gif/search/:searchTerm', component: SearchedGifsComponent},
   {path: 'team', component: AboutUsComponent},
   {path: 'upload', component: UploadComponent},

@@ -16,6 +16,7 @@ import {CookieService} from 'ngx-cookie-service';
 import { UploadComponent } from './upload/upload.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserComponent } from './user/user.component';
+import { NewsFeedComponent } from './news-feed/news-feed.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { UserComponent } from './user/user.component';
     ProfileComponent,
     UploadComponent,
     UserListComponent,
-    UserComponent
+    UserComponent,
+    NewsFeedComponent
   ],
   imports: [
     BrowserModule,

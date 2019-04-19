@@ -29,7 +29,7 @@ export class NavBarComponent implements OnInit {
     this.router.navigate(['/user/' + this.searchTerm]);
   }
 
-  onLogout(){
+  onLogout() {
     this.userService.logout();
     this.router.navigate(['/login']);
   }

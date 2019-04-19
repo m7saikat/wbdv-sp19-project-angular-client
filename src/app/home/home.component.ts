@@ -43,8 +43,8 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  onGifClick(gifId){
-    this.router.navigate(['gif',gifId]);
+  onGifClick(gifId) {
+    this.router.navigate(['gif', gifId]);
   }
 
 }
