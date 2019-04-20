@@ -7,7 +7,7 @@
     <!--<div class="col-1 mt-1"><i class="fa fa-user-o" id="profile-logo"></i></div>-->
     <div class="col-2"></div>
     <div class="col-8 d-flex flex-grow-1 flex-fill justify-content-between align-items-center nav-content">
-      <img src="https://36711.apps.zdusercontent.com/36711/assets/1506469900-fd7a54462c6615af92812b8a1a25884b/logo.png" height="32vh" id="logo" routerLink="/home">
+      <img src="https://36711.apps.zdusercontent.com/36711/assets/1506469900-fd7a54462c6615af92812b8a1a25884b/logo.png" height="32vh" class="logo" routerLink="/home">
       <!--<ul class="list-inline d-flex flex-grow-1 flex-fill justify-content-around align-items-center nav-links">-->
         <!--<li class="list-inline-item"><a routerLink="/gif/search/reactions">Reactions</a><hr></li>-->
         <!--<li class="list-inline-item"><a routerLink="/gif/search/entertainment">Entertainment</a><hr></li>-->
@@ -46,19 +46,37 @@
     <div class="col-2"></div>
     <div class="col-8">
       <!--<form class="d-flex">-->
-      <input id= "search-bar" class="form-control" type="text" placeholder="Search GIFS or Users" [(ngModel)]="searchTerm">
-      <span class="dropdown float-right">
-        <button class="btn dropdown-toggle" type="button"
-                id="dropdown-btn" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-          Search by
-        </button>
+      <!--<form #f="ngForm" class="d-flex">-->
+      <div class="d-flex">
+        <input id= "search-bar" class="form-control" type="text" placeholder="Search GIFS or Users" [(ngModel)]="searchTerm">
+        <!--<button class="btn" type="submit" id="search-btn"><i class="fa fa-search search-logo"></i></button>-->
+        <div class="dropdown">
+          <button class="btn dropdown-toggle" type="button"
+              id="search-btn" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-search search-logo"></i>
+          </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-          <button class="btn dropdown-item" id="logo"(click)="searchGif()"><img src="https://36711.apps.zdusercontent.com/36711/assets/1506469900-fd7a54462c6615af92812b8a1a25884b/logo.png" height="32vh" id="logo" routerLink="/home">GIFs</button>
+          <button class="btn dropdown-item logo" (click)="searchGif()"><img src="https://36711.apps.zdusercontent.com/36711/assets/1506469900-fd7a54462c6615af92812b8a1a25884b/logo.png" height="32vh" id="logo" routerLink="/home">GIFs</button>
           <button class="btn dropdown-item" (click)="searchUsers()">
-            <i class="fa fa-users" aria-hidden="true"></i>  Users</button>
+          <i class="fa fa-users" aria-hidden="true"></i>  Users</button>
         </div>
-      </span>
+        </div>
+      </div>
+      <!--</form>-->
+
+      <!--<span class="dropdown float-right">-->
+        <!--<button class="btn dropdown-toggle" type="button"-->
+                <!--id="dropdown-btn" data-toggle="dropdown"-->
+                <!--aria-haspopup="true" aria-expanded="false">-->
+          <!--Search by-->
+        <!--</button>-->
+        <!--<div class="dropdown-menu" aria-labelledby="dropdownMenu2">-->
+          <!--<button class="btn dropdown-item" id="logo"(click)="searchGif()"><img src="https://36711.apps.zdusercontent.com/36711/assets/1506469900-fd7a54462c6615af92812b8a1a25884b/logo.png" height="32vh" id="logo" routerLink="/home">GIFs</button>-->
+          <!--<button class="btn dropdown-item" (click)="searchUsers()">-->
+            <!--<i class="fa fa-users" aria-hidden="true"></i>  Users</button>-->
+        <!--</div>-->
+      <!--</span>-->
 
 
       <!--</form>-->

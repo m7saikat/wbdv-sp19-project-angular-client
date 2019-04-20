@@ -151,4 +151,30 @@ export class UserService {
       response.json();
     });
   }
+
+  deleteUser = (userId) => {
+    return fetch(this.backendURL + '/user/' + userId, {
+      method: 'DELETE',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }).then((response) => {
+      console.log(response);
+      response.json();
+    });
+  }
+
+  createUser = (user) => {
+    return fetch(this.backendURL + '/user' , {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(user)
+    }).then((response) => {
+      return response.json();
+    });
+  }
 }
