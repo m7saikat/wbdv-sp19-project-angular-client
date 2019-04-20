@@ -1,0 +1,28 @@
+body{
+  height:100vh;
+  background-color:black;
+  overflow-x: hidden;
+}
+.margin {
+  margin: 1rem;
+}
+
+.gif-cards{
+  border-radius: 0;
+  transition: transform .3s;
+}
+
+.gif-cards:hover {
+  transform: scale(0.9); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.gif-cards-body{
+  padding: 0;
+  margin: 0;
+
+}
+
+.gif-header{
+  color:#A6A6A6;
+}
+

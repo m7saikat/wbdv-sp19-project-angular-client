@@ -12,9 +12,28 @@ export class UserListComponent implements OnInit {
   allUsers;
   searchedUsers = [];
   userToSearch;
+  currentUser;
   constructor(private userService: UserService, private cookieService: CookieService, private activatedRoute: ActivatedRoute, private router: Router) {
     this.activatedRoute.params.subscribe((params) => {
       this.userToSearch = params.userName;
+    });
+    this.userService.getUser().then((response) => {
+      this.currentUser = response;
+    });
+  }
+  follow = (followerId) => {
+      this.userService.follow(followerId).then((response) => {
+        this.currentUser.followers.push(followerId);
+        console.log(response);
+      });
+  }
+  unfollow = (followerId) => {
+    this.userService.unfollow(followerId).then((response) => {
+      const index = this.currentUser.followers.indexOf(followerId, 0);
+      if (index > -1) {
+        this.currentUser.followers.splice(index, 1);
+      }
+      console.log(response);
     });
   }
 
