@@ -1,0 +1,114 @@
+<body>
+  <app-nav-bar></app-nav-bar>
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+      <form class="form-inline my-2">
+        <!--<input class="form-control col-4" name="appointment" type="search" placeholder="Enter user" />-->
+        <button type="button" class="btn btn-md btn-outline-info ml-2" (click)="createUser()">Create User</button>
+        <!--<button type="button" class="btn btn-md btn-outline-dark ml-2">Create/ Edit Enrollments</button>-->
+        <button type="button" class="btn btn-md btn-outline-info ml-2">Create/ Edit Gif</button>
+      </form>
+    </div>
+    <div class="col-2"></div>
+  </div>
+
+  <!-- Table for appointment list -->
+  <table class="table table-bordered table-dark my-4">
+    <thead>
+    <tr>
+      <th scope="col">Username</th>
+      <th scope="col">Email</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users">
+      <th scope="row">{{user.username}}</th>
+      <td>{{user.email}}</td>
+      <td>{{user.firstName}}</td>
+      <td>{{user.lastName}}</td>
+      <!--<td><button class="btn btn-primary" (click)="createUser()">Create</button></td>-->
+      <td><button class="btn btn-warning" (click)="editUser(user._id)">Edit</button></td>
+      <td><button class="btn btn-danger" (click)="deleteUser(user._id)">Delete</button></td>
+    </tr>
+    </tbody>
+  </table>
+  <!-- Customer list modal -->
+  <div class="modal fade" id="customersModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Customers</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-4">
+                <h5>Customer Name</h5>
+              </div>
+              <div class="col-4">
+                <h5>Customer ID</h5>
+              </div>
+              <div class="col-4">
+                <h5>Customer Email</h5>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="col-4">
+                <h6></h6>
+              </div>
+              <div class="col-4">
+                <h6></h6>
+              </div>
+              <div class="col-4">
+                <h6></h6>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Users modal -->
+  <div class="modal fade" id="recipeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Users</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-3">
+                <h5>User Name</h5>
+              </div>
+              <div class="col-3">
+                <h5>Password</h5>
+              </div>
+              <div class="col-3">
+                <h5>Customer Email</h5>
+              </div>
+              <div class="col-3">
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

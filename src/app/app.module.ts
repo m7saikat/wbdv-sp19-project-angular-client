@@ -17,6 +17,10 @@ import { UploadComponent } from './upload/upload.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserComponent } from './user/user.component';
 import { NewsFeedComponent } from './news-feed/news-feed.component';
+import { AdminUserPageComponent } from './admin-user-page/admin-user-page.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AdminEditUserComponent } from './admin-edit-user/admin-edit-user.component';
+import { AdminCreateUserComponent } from './admin-create-user/admin-create-user.component';
 
 @NgModule({
   declarations: [
@@ -32,12 +36,16 @@ import { NewsFeedComponent } from './news-feed/news-feed.component';
     UploadComponent,
     UserListComponent,
     UserComponent,
-    NewsFeedComponent
+    NewsFeedComponent,
+    AdminUserPageComponent,
+    AdminEditUserComponent,
+    AdminCreateUserComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]
