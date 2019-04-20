@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {GiphyService} from "../services/giphy.service";
 import {UserService} from '../services/user.service';
 import {CookieService} from 'ngx-cookie-service';
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-gif',
@@ -52,5 +53,9 @@ export class GifComponent implements OnInit {
       userId: this.userId
     }).then((response) => {
     });
+  }
+
+  onCommentSubmit(f: NgForm){
+    console.log(f.value);
   }
 }
