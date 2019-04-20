@@ -71,3 +71,12 @@ textarea{
   font-family: 'Poppins', sans-serif;
   border-radius: 0!important;
 }
+
+.comment{
+  font-family: 'Poppins', sans-serif;
+  color: white;
+}
+
+hr{
+  border: 1px solid rgb(80,80,80);
+}

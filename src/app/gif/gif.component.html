@@ -31,6 +31,16 @@
                 <!--<img  class="card-img" src="{{gif.images.fixed_height.url}}" (click)="onGifClick(gif.id)">-->
               </form>
             </div>
+            <hr>
+            <h2 class="comment">Comments</h2>
+            <hr>
+            <div class="mt-2 border-0">
+              <div *ngFor="let comment of comments">
+                <h5>{{comment.username}}</h5>
+                <h6 class="comment">{{comment.text}}</h6>
+                <hr>
+              </div>
+            </div>
           </div>
           <div *ngIf="isCopyLinkClicked">
             <form id="link-form">
