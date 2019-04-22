@@ -58,7 +58,8 @@ export class UserService {
   setSession(response){
     const expiresIn = moment().add(response.expiresIn, 'hours');
     console.log(expiresIn.format('LLL'));
-
+    console.log("Moment", moment());
+    console.log("ExpiresIn" ,expiresIn);
     localStorage.setItem("expiresIn", JSON.stringify(expiresIn));
     this.cookieService.set("token", response.token);
     this.cookieService.set("username", response.user.user.username);
@@ -76,7 +77,6 @@ export class UserService {
       localStorage.removeItem("expiresIn");
       this.cookieService.deleteAll();
     })
-
   }
 
   isLoggedIn() {

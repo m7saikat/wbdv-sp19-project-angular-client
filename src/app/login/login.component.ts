@@ -3,8 +3,7 @@ import {Router} from '@angular/router';
 import {NgForm} from '@angular/forms';
 import {UserService} from '../services/user.service';
 import {CookieService} from 'ngx-cookie-service';
-
-
+import { SocialUser } from 'angularx-social-login';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -20,6 +19,16 @@ export class LoginComponent implements OnInit {
     this.isLoginSuccessful = false;
     this.isLoginUnsuccessful = false;
   }
+
+  signInWithGoogle(): void {
+    // this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(res => {
+    //   this.userService.getUserfromSocial(res.email).then(user=>
+    //   this.userService.loginUser(user)
+    //     .then(resp => console.log(resp)));
+    // });
+    window.open('https://accounts.google.com/o/oauth2/auth?scope=email&response_type=code&access_type=offline&redirect_uri=http://localhost:4000/login/google&client_id=950601830079-k48proe2ml618ce918k5it6uo15ib0dq.apps.googleusercontent.com','_self') ;
+  }
+
 
   ngOnInit() {
   }
@@ -50,14 +59,4 @@ export class LoginComponent implements OnInit {
       }
     });
   }
-
-  onSignIn(googleUser) {
-    console.log("<---Here--->");
-    const profile = googleUser.getBasicProfile();
-    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-    console.log('Name: ' + profile.getName());
-    console.log('Image URL: ' + profile.getImageUrl());
-    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-  }
-
 }

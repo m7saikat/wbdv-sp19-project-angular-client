@@ -21,7 +21,22 @@ import { AdminUserPageComponent } from './admin-user-page/admin-user-page.compon
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminEditUserComponent } from './admin-edit-user/admin-edit-user.component';
 import { AdminCreateUserComponent } from './admin-create-user/admin-create-user.component';
+import { SocialLoginModule, AuthServiceConfig } from 'angularx-social-login';
+import { GoogleLoginProvider} from 'angularx-social-login';
 
+// const googleLoginOptions: LoginOpt = {
+//   scope: 'profile email'
+// };
+
+let config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider("950601830079-k48proe2ml618ce918k5it6uo15ib0dq.apps.googleusercontent.com")
+  }]);
+
+export function provideConfig() {
+  return config;
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,9 +60,14 @@ import { AdminCreateUserComponent } from './admin-create-user/admin-create-user.
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    SocialLoginModule
   ],
-  providers: [CookieService],
+  providers: [CookieService,
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
