@@ -19,6 +19,11 @@ h5{
   overflow-wrap: break-word;
 }
 
+textarea{
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+}
+
 .gif-cards{
   border-radius: 0;
 }
@@ -57,4 +62,21 @@ h5{
 
 .close-icon{
   font-size: 4vh;
+}
+
+#comment-btn{
+  width:100%;
+  background-color:rgb(80,80,80);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 0!important;
+}
+
+.comment{
+  font-family: 'Poppins', sans-serif;
+  color: white;
+}
+
+hr{
+  border: 1px solid rgb(80,80,80);
 }

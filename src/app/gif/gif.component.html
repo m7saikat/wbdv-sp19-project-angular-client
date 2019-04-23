@@ -17,6 +17,30 @@
                 <img  class="card-img" src="{{gif.images.fixed_height.url}}" (click)="onGifClick(gif.id)">
               </div>
             </div>
+            <div class="mt-2 border-0" *ngIf="cookieValue !== '' ">
+              <form #f="ngForm" (ngSubmit) = "onCommentSubmit(f)">
+                <div class="form-group" >
+                  <textarea placeholder="Enter comment." rows="3" name="comment" ngModel></textarea>
+                  <!--<input class="form-control" placeholder="Comment.">-->
+                </div>
+                <div class="form-group">
+                  <button class="btn" id="comment-btn" type="submit">
+                    Submit
+                  </button>
+                </div>
+                <!--<img  class="card-img" src="{{gif.images.fixed_height.url}}" (click)="onGifClick(gif.id)">-->
+              </form>
+            </div>
+            <hr>
+            <h2 class="comment">Comments</h2>
+            <hr>
+            <div class="mt-2 border-0">
+              <div *ngFor="let comment of comments">
+                <h5>{{comment.username}}</h5>
+                <h6 class="comment">{{comment.text}}</h6>
+                <hr>
+              </div>
+            </div>
           </div>
           <div *ngIf="isCopyLinkClicked">
             <form id="link-form">
@@ -74,7 +98,7 @@
         <div class="col-sm-1 col-md-3">
           <br>
           <h5 class="share-items" (click)="onCopyLinkClick()" *ngIf="!isCopyLinkClicked"><i class="fa fa-link mr-2"></i> Copy Link</h5>
-          <h5 class="share-items" (click)="onLikeGifClick()" *ngIf="!isCopyLinkClicked"><i class="fa fa-heart mr-2"></i> Like Gif</h5>
+          <h5 class="share-items" (click)="onLikeGifClick()" *ngIf="!isCopyLinkClicked && cookieValue !== '' "><i class="fa fa-heart mr-2"></i> Like Gif</h5>
         </div>
       </div>
     </div>

@@ -1,0 +1,69 @@
+<body>
+<app-nav-bar></app-nav-bar>
+<div>
+  <div class="row mt-3 mb-5">
+    <div class="col-3"></div>
+    <div class="col-6" *ngIf="isLoaded">
+      <div>
+        <div>
+          <form #f="ngForm" id="link-form">
+            <div class="d-flex flex-grow-1 flex-fill justify-content-between align-items-center mb-4">
+              <span class="form-header"><i class="fa fa-chevron-left back-icon mr-2" (click)="redirectToAdminUser()"></i> Update User</span>
+            </div>
+            <div class="form-group row">
+              <label for="username" class="col-sm-2 col-form-label">Username</label>
+              <div class="col-sm-10">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" id="username" name="username" value="{{username}}">
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="email-address" class="col-sm-2 col-form-label">Email Address</label>
+              <div class="col-sm-10">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" id="email-address" name="email" value="{{email}}" [(ngModel)]="email">
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="first-name" class="col-sm-2 col-form-label">First Name</label>
+              <div class="col-sm-10">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" id="first-name" name = "firstName" value="{{firstName}}" [(ngModel)]="firstName">
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="last-name" class="col-sm-2 col-form-label">Last Name</label>
+              <div class="col-sm-10">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" id="last-name" ngModel name="lastName" value="{{lastName}}" [(ngModel)] = "lastName">
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+                <label for="role-type" class="col-sm-2 col-form-label">Role</label>
+              <div class="col-sm-10">
+                <select id = "role-type" class="form-control" name="role" [(ngModel)] = "role" >
+                  <option selected>Choose...</option>
+                  <option value="CONTENTCREATOR">Content Creator</option>
+                  <option value="COMMONUSER">Normal User</option>
+                  <option value="ADMIN">Admin</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-2"></div>
+              <div class="col-sm-10">
+                <button class="btn btn-block btn-success" id="save-btn" (click)="onUpdateUser(f)">Save</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-3"></div>
+    </div>
+  </div>
+</div>
+</body>

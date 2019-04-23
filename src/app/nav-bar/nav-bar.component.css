@@ -13,7 +13,7 @@ a{
   padding: 0!important;
 }
 
-#logo {
+.logo {
   line-height:0;
 }
 
@@ -56,6 +56,7 @@ a{
   background-image:linear-gradient(45deg, rgb(153, 51, 255) 0%, rgb(255, 102, 102) 50%, rgb(153, 51, 255) 100%);
   border-radius: 0;
   outline: 0!important;
+  height: 52px;
 }
 
 .search-btn {

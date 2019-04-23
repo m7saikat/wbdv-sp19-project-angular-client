@@ -12,14 +12,20 @@ import {UploadComponent} from './upload/upload.component';
 import {UserListComponent} from './user-list/user-list.component';
 import {UserComponent} from './user/user.component';
 import {NewsFeedComponent} from './news-feed/news-feed.component';
+import {AdminUserPageComponent} from './admin-user-page/admin-user-page.component';
+import {AdminEditUserComponent} from './admin-edit-user/admin-edit-user.component';
+import {AdminCreateUserComponent} from './admin-create-user/admin-create-user.component';
 
 
 const routes: Routes = [
+  {path: 'admin-user-page' , component: AdminUserPageComponent},
+  {path: 'admin/edit-user/:userId', component: AdminEditUserComponent},
+  {path: 'admin/create-user', component: AdminCreateUserComponent},
   {path: 'gif/:gifId', component: GifComponent},
   {path: 'newsfeed', component: NewsFeedComponent},
   {path: 'gif/search/:searchTerm', component: SearchedGifsComponent},
   {path: 'team', component: AboutUsComponent},
-  {path: 'upload', component: UploadComponent},
+  {path: 'upload', component: UploadComponent, canActivate: [AuthGuardService]},
   {path: 'gif/:gifId', component: GifComponent},
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},

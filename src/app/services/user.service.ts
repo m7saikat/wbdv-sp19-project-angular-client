@@ -58,10 +58,12 @@ export class UserService {
   setSession(response){
     const expiresIn = moment().add(response.expiresIn, 'hours');
     console.log(expiresIn.format('LLL'));
-
+    console.log("Moment", moment());
+    console.log("ExpiresIn" ,expiresIn);
     localStorage.setItem("expiresIn", JSON.stringify(expiresIn));
     this.cookieService.set("token", response.token);
     this.cookieService.set("username", response.user.user.username);
+    this.cookieService.set("role", response.user.user.role); // 'ADMIN', 'COMMONUSER','CONTENTCREATOR'
     this.cookieService.set("userId", response.user.user._id);
   }
 
@@ -76,7 +78,6 @@ export class UserService {
       localStorage.removeItem("expiresIn");
       this.cookieService.deleteAll();
     })
-
   }
 
   isLoggedIn() {
@@ -149,6 +150,32 @@ export class UserService {
     }).then((response) => {
       console.log(response);
       response.json();
+    });
+  }
+
+  deleteUser = (userId) => {
+    return fetch(this.backendURL + '/user/' + userId, {
+      method: 'DELETE',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }).then((response) => {
+      console.log(response);
+      response.json();
+    });
+  }
+
+  createUser = (user) => {
+    return fetch(this.backendURL + '/user' , {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(user)
+    }).then((response) => {
+      return response.json();
     });
   }
 }
