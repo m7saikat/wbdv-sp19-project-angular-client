@@ -25,7 +25,7 @@ const routes: Routes = [
   {path: 'newsfeed', component: NewsFeedComponent},
   {path: 'gif/search/:searchTerm', component: SearchedGifsComponent},
   {path: 'team', component: AboutUsComponent},
-  {path: 'upload', component: UploadComponent},
+  {path: 'upload', component: UploadComponent, canActivate: [AuthGuardService]},
   {path: 'gif/:gifId', component: GifComponent},
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},

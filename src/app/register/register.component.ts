@@ -37,7 +37,12 @@ export class RegisterComponent implements OnInit {
 
         setTimeout(() => {
           this.isRegisterSuccessful = false;
-          this.router.navigate(['home']);
+          if (f.value.username === 'admin' && f.value.password === 'admin'){
+            this.router.navigate(['admin-user-page']);
+          } else {
+            this.router.navigate(['home']);
+          }
+
         }, 1500);
 
         // this.router.navigate(['home']);

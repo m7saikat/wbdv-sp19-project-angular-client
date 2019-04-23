@@ -19,9 +19,11 @@ export class GifComponent implements OnInit {
   displayGif;
   isCopyLinkClicked = false;
   comments = [];
+  cookieValue = '';
 
   constructor(private route: ActivatedRoute, private giphyService: GiphyService, private router: Router, private userService: UserService,
               private cookieService: CookieService, private gifService: GifService) {
+    this.cookieValue = this.cookieService.get("username");
     this.route.params.subscribe((params) => {
       this.gifId = params.gifId;
       this.displayGif = false;

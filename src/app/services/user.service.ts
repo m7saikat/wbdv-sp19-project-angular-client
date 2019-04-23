@@ -63,6 +63,7 @@ export class UserService {
     localStorage.setItem("expiresIn", JSON.stringify(expiresIn));
     this.cookieService.set("token", response.token);
     this.cookieService.set("username", response.user.user.username);
+    this.cookieService.set("role", response.user.user.role); // 'ADMIN', 'COMMONUSER','CONTENTCREATOR'
     this.cookieService.set("userId", response.user.user._id);
   }
 

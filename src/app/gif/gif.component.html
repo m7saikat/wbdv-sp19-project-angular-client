@@ -17,7 +17,7 @@
                 <img  class="card-img" src="{{gif.images.fixed_height.url}}" (click)="onGifClick(gif.id)">
               </div>
             </div>
-            <div class="mt-2 border-0">
+            <div class="mt-2 border-0" *ngIf="cookieValue !== '' ">
               <form #f="ngForm" (ngSubmit) = "onCommentSubmit(f)">
                 <div class="form-group" >
                   <textarea placeholder="Enter comment." rows="3" name="comment" ngModel></textarea>
@@ -98,7 +98,7 @@
         <div class="col-sm-1 col-md-3">
           <br>
           <h5 class="share-items" (click)="onCopyLinkClick()" *ngIf="!isCopyLinkClicked"><i class="fa fa-link mr-2"></i> Copy Link</h5>
-          <h5 class="share-items" (click)="onLikeGifClick()" *ngIf="!isCopyLinkClicked"><i class="fa fa-heart mr-2"></i> Like Gif</h5>
+          <h5 class="share-items" (click)="onLikeGifClick()" *ngIf="!isCopyLinkClicked && cookieValue !== '' "><i class="fa fa-heart mr-2"></i> Like Gif</h5>
         </div>
       </div>
     </div>

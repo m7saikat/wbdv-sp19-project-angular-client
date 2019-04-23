@@ -46,7 +46,12 @@ export class LoginComponent implements OnInit {
 
         setTimeout(() => {
           this.isLoginSuccessful = false;
-          this.router.navigate(['home']);
+
+          if (f.value.username === 'admin' && f.value.password === 'admin'){
+            this.router.navigate(['admin-user-page']);
+          } else {
+            this.router.navigate(['home']);
+          }
         }, 1200);
 
         // this.router.navigate(['home']);
