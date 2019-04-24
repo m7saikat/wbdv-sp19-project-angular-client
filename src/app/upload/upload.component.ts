@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {GifService} from '../services/gif.service';
 
 @Component({
   selector: 'app-upload',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./upload.component.css']
 })
 export class UploadComponent implements OnInit {
-
-  constructor() { }
+  gifLink: string;
+  gifTitle: string;
+  constructor(private gifService: GifService) { }
 
   ngOnInit() {
+  }
+
+  addGif = () => {
+    this.gifService.uploadGif(this.gifTitle, this.gifLink);
   }
 
 }
