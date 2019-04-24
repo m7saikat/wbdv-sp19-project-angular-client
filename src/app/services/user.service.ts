@@ -24,7 +24,7 @@ export class UserService {
   }
 
   registerUser(user){
-    return fetch("http://localhost:4000/register", {
+    return fetch("https://wbdv-sp19-gif-art-server.herokuapp.com/register", {
       method: "POST",
       credentials: "include",
       headers: {
@@ -35,7 +35,7 @@ export class UserService {
   }
 
   loginUser(user){
-    return fetch("http://localhost:4000/login", {
+    return fetch("https://wbdv-sp19-gif-art-server.herokuapp.com/login", {
       method: "POST",
       credentials: "include",
       headers: {
@@ -70,7 +70,7 @@ export class UserService {
   }
 
   logout(){
-    return fetch("http://localhost:4000/logout", {
+    return fetch("https://wbdv-sp19-gif-art-server.herokuapp.com/logout", {
       method: "POST",
       credentials: "include",
       headers: {
