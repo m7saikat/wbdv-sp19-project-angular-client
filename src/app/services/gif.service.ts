@@ -9,7 +9,8 @@ export class GifService {
   backendURL = '';
 
   constructor(private userService: UserService) {
-    this.backendURL = 'http://localhost:4000/api';
+    // this.backendURL = 'http://localhost:4000/api';
+    this.backendURL = 'https://wbdv-sp19-gif-art-server.herokuapp.com/api';
   }
 
   createComment(gifId, comment) {
