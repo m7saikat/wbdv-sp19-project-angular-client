@@ -11,10 +11,14 @@
           <div class="upload-form">
             <form #f="ngForm">
               <div class="form-group">
+                <label for="gifName" class="upload-label text-uppercase">Enter a brief description of gif</label>
+                <input style="{'margin':'1rem'}" class="form-control upload-details mt-2" id="gifName" type="text" name="gifTitle" [(ngModel)]="gifTitle" placeholder="Gif title">
+
+
                 <label for="upload-box" class="upload-label text-uppercase">Copy and paste any GIF URL</label>
-                <input class="form-control upload-details mt-2" id="upload-box" type="text" name="gifURL" ngModel placeholder="Copy and paste video, GIF, or image URL">
+                <input class="form-control upload-details mt-2" id="upload-box" type="text" name="gifURL" [(ngModel)]="gifLink" placeholder="Copy and paste video, GIF, or image URL">
               </div>
-              <div class="form-group"><button class="btn" type="submit" id="upload-btn">Upload</button></div>
+              <div class="form-group"><button class="btn" type="submit" id="upload-btn" (click)="addGif()">Upload</button></div>
             </form>
           </div>
         </div>

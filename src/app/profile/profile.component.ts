@@ -3,6 +3,7 @@ import {UserService} from '../services/user.service';
 import {NgForm} from '@angular/forms';
 import {CookieService} from 'ngx-cookie-service';
 import {GiphyService} from '../services/giphy.service';
+import {GifService} from '../services/gif.service';
 
 @Component({
   selector: 'app-profile',
@@ -19,7 +20,8 @@ export class ProfileComponent implements OnInit {
   isLoaded = false;
   userLikes: any[] = [];
   hasLikes: boolean;
-  constructor(private userService: UserService, private cookieService: CookieService, private giphyService: GiphyService) {
+  uploads: any[];
+  constructor(private userService: UserService, private cookieService: CookieService, private giphyService: GiphyService, private gifService: GifService) {
     this.userService.getUser().then((response) => {
       this.username = response.username;
       this.email = response.email;
@@ -39,6 +41,10 @@ export class ProfileComponent implements OnInit {
         // });
         this.userLikes = response.likes;
       }
+    });
+    this.gifService.getUploads().then((res) => {
+      this.uploads = res;
+      console.log(this.uploads);
     });
   }
 

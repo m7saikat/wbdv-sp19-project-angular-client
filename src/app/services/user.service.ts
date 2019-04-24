@@ -146,7 +146,7 @@ export class UserService {
         'Content-Type': 'application/json',
       },
       body : JSON.stringify({
-        followId: followerId
+        unfollowId: followerId
       })
     }).then((response) => {
       console.log(response);
