@@ -31,9 +31,10 @@
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
             <button class="btn dropdown-item" type="button" routerLink="/newsfeed"><i class="far fa-newspaper"></i> News Feed</button>
-            <button class="btn dropdown-item" type="button" routerLink="/upload" *ngIf="userRole === 'CONTENTCREATOR'"><i class="fa fa-upload mr-2" id="upload-logo"></i> Upload</button>
+            <button class="btn dropdown-item" type="button" routerLink="/upload" *ngIf="userRole !== 'COMMONUSER'"><i class="fa fa-upload mr-2" id="upload-logo"></i> Upload</button>
             <button class="btn dropdown-item" type="button" routerLink="/profile"><i class="fa fa-user-o mr-2" id="profile-logo" ></i> Profile</button>
             <button class="btn dropdown-item" type="button" routerLink="/team"><i class="fa fa-users mr-2" id="team-logo" ></i> Team</button>
+            <button class="btn dropdown-item" type="button" routerLink="/admin-user-page"><i class="fa fa-users-cog mr-2"></i> Admin</button>
             <button class="btn dropdown-item" type="button" (click)="onLogout()"><i class="fa fa-sign-out mr-2" id="logout-logo" ></i> Logout</button>
           </div>
         </div>
