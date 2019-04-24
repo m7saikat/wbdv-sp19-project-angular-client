@@ -84,7 +84,7 @@
           <h5 class="gif-header">@{{user.username}}'s UPLOADS</h5>
           <div class="row">
             <div class="col-sm-1 col-md-3" *ngFor="let u of uploads">
-              <div class="card mt-2 border-0 gif-cards">
+              <div class="card mt-2 border-0 gif-cards" (click)="goToUserUploadGif(u.gifURl)">
                 <div class="card-body gif-cards-body">
                   <img class="card-img" src="{{u.gifURl}}" height="250px" width="140px">
                 </div>

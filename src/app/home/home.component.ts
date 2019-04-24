@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   hasLikes: boolean;
   cookieValue = "";
   constructor(private giphyService: GiphyService, private router: Router, private cookieService: CookieService, private userService: UserService) {
-
+    console.log('**************',cookieService.get("username"));
     this.cookieValue = cookieService.get("username");
 
     this.giphyService.getTrending().then((response) => {

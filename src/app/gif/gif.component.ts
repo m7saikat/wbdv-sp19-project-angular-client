@@ -67,7 +67,7 @@ export class GifComponent implements OnInit {
     this.isCopyLinkClicked = false;
   }
 
-  onLikeGifClick(){
+  onLikeGifClick() {
     this.userService.likeGif({
       // gifId: this.gifId,
       gifId: this.gif.images.fixed_height.url,

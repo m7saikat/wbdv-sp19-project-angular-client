@@ -10,9 +10,9 @@
           <li class="list-group-item list-group-item-primary list" *ngFor="let u of searchedUsers">
             <div class="float-left">
               <i class="fas fa-user"></i>     {{u.firstName}} {{u.lastName}}
-              <a [ngStyle]="{'cursor':'pointer'}" (click)="goToUser(u._id)">@{{u.username}}</a>
+              <a [ngStyle]="{'cursor':'pointer'}" (click)="goToUser(u._id)" > @{{u.username}}</a>
             </div>
-            <div class="float-right" [ngStyle]="{'cursor':'pointer'}">
+            <div class="float-right">
               <div *ngIf="!currentUser.followers.includes(u._id)">
                 <i class="fas fa-user-plus" (click)="follow(u._id)"></i>
               </div>

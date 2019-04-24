@@ -56,8 +56,8 @@ export class UserService {
     }).then((response) => response.json());
   }
 
-  setSession(response){
-    console.log('****',response);
+  setSession(response) {
+    console.log('in  user service', response);
     const expiresIn = moment().add(response.expiresIn, 'hours');
     console.log(expiresIn.format('LLL'));
     console.log("Moment", moment());
