@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   hasLikes: boolean;
   cookieValue = "";
   constructor(private giphyService: GiphyService, private router: Router, private cookieService: CookieService, private userService: UserService) {
-
+    console.log('**************',cookieService.get("username"));
     this.cookieValue = cookieService.get("username");
 
     this.giphyService.getTrending().then((response) => {
@@ -25,15 +25,17 @@ export class HomeComponent implements OnInit {
 
     if(this.cookieValue !== ''){
       this.userService.getUser().then((response) => {
-        if (response.likes.length === 0){
+        if (!response.likes || response.likes.length === 0){
           this.hasLikes = false;
         } else{
           this.hasLikes = true;
-          response.likes.map((like) => {
-            this.giphyService.getGifById(like).then((gif) => {
-              this.userLikes.push(gif);
-            });
-          });
+          // response.likes.map((like) => {
+          //   this.giphyService.getGifById(like).then((gif) => {
+          //     this.userLikes.push(gif);
+          //   });
+          // });
+          this.userLikes = response.likes;
+          console.log('^^^', this.userLikes);
         }
       });
     }
@@ -43,8 +45,13 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  onGifClick(gifId) {
-    this.router.navigate(['gif', gifId]);
+  onGifClick(gifId, gifUrl) {
+    this.router.navigate(['gif', gifId], { queryParams: { url: gifUrl } });
+  }
+
+  onFavGifClick(gifId) {
+    console.log(gifId.split("/")[4]);
+    this.router.navigate(['gif', gifId.split("/")[4]], { queryParams: { url: gifId } });
   }
 
 }

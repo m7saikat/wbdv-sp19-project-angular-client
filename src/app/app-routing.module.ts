@@ -15,9 +15,11 @@ import {NewsFeedComponent} from './news-feed/news-feed.component';
 import {AdminUserPageComponent} from './admin-user-page/admin-user-page.component';
 import {AdminEditUserComponent} from './admin-edit-user/admin-edit-user.component';
 import {AdminCreateUserComponent} from './admin-create-user/admin-create-user.component';
+import {UserUploadGifComponent} from './user-upload-gif/user-upload-gif.component';
 
 
 const routes: Routes = [
+  {path: 'gif/upload', component: UserUploadGifComponent},
   {path: 'admin-user-page' , component: AdminUserPageComponent},
   {path: 'admin/edit-user/:userId', component: AdminEditUserComponent},
   {path: 'admin/create-user', component: AdminCreateUserComponent},
@@ -25,14 +27,14 @@ const routes: Routes = [
   {path: 'newsfeed', component: NewsFeedComponent},
   {path: 'gif/search/:searchTerm', component: SearchedGifsComponent},
   {path: 'team', component: AboutUsComponent},
-  {path: 'upload', component: UploadComponent},
+  {path: 'upload', component: UploadComponent, canActivate: [AuthGuardService]},
   {path: 'gif/:gifId', component: GifComponent},
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService]},
   {path: 'user/:userName', pathMatch: 'full', component: UserListComponent},
-  {path: 'search/user/:userId', pathMatch: 'full', component: UserComponent},
+  {path: 'profile/:profileId', pathMatch: 'full', component: UserComponent},
   {path: '', pathMatch: 'full', component: HomeComponent},
   {path: '**', component: LoginComponent}
   ];

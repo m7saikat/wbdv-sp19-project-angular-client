@@ -8,14 +8,14 @@
         <div>
           <div class="row" *ngIf="f.likes.length > 0">
             <div class="col-sm-1 col-md-3" *ngFor="let r of gifs">
-              <div *ngIf="r.username === f.username">
-                <div class="card mt-2 border-0 gif-cards">
-                  <div class="card-body gif-cards-body">
-                    <img class="card-img" src="{{r.link}}"  height="250px" width="140px" (click)="onGifClick(r.link)">
+                <div *ngIf="r.username === f.username">
+                  <div class="card mb-4 border-0 gif-cards">
+                    <div class="card-body gif-cards-body">
+                      <img class="card-img" src="{{r.link}}"  height="250px" width="140px">
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
           </div>
           <div *ngIf="f.likes.length === 0">
             <h6 class="gif-header">You have not liked any gifs</h6>

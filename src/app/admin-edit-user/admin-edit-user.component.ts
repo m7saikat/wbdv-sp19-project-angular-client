@@ -14,6 +14,7 @@ export class AdminEditUserComponent implements OnInit {
   email = '';
   firstName = '';
   lastName = '';
+  role = '';
   isLoaded = false;
   constructor(private activatedRoute: ActivatedRoute, private userService: UserService, private router: Router) {
     this.activatedRoute.params.subscribe((params) => {
@@ -40,7 +41,8 @@ export class AdminEditUserComponent implements OnInit {
     const updatedUser = {
       "firstName" : f.value.firstName,
       "lastName": f.value.lastName,
-      "email": f.value.email
+      "email": f.value.email,
+      "role": f.value.role
     };
 
     this.userService.updateUser(this.userId, updatedUser).then((response) => {

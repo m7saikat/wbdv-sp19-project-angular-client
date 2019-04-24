@@ -21,6 +21,7 @@
       <th scope="col">Email</th>
       <th scope="col">First Name</th>
       <th scope="col">Last Name</th>
+      <th scope="col">Role</th>
     </tr>
     </thead>
     <tbody>
@@ -29,6 +30,7 @@
       <td>{{user.email}}</td>
       <td>{{user.firstName}}</td>
       <td>{{user.lastName}}</td>
+      <td>{{user.role === 'COMMONUSER'? 'Normal User': user.role === 'ADMIN'? 'Admin': 'Content creator'}}</td>
       <!--<td><button class="btn btn-primary" (click)="createUser()">Create</button></td>-->
       <td><button class="btn btn-warning" (click)="editUser(user._id)">Edit</button></td>
       <td><button class="btn btn-danger" (click)="deleteUser(user._id)">Delete</button></td>

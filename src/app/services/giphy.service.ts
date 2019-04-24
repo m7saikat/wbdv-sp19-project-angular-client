@@ -8,7 +8,7 @@ export class GiphyService {
   giphyURL = '';
   api_Key = 'fk3MBBBRoLPAkvVveYspA8Io1vts6h7k';
   constructor() {
-    this.giphyURL = "http://api.giphy.com"
+    this.giphyURL = "https://api.giphy.com"
   }
 
   getTrending() {

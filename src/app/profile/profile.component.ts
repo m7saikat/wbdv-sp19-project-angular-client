@@ -3,6 +3,7 @@ import {UserService} from '../services/user.service';
 import {NgForm} from '@angular/forms';
 import {CookieService} from 'ngx-cookie-service';
 import {GiphyService} from '../services/giphy.service';
+import {GifService} from '../services/gif.service';
 
 @Component({
   selector: 'app-profile',
@@ -19,9 +20,9 @@ export class ProfileComponent implements OnInit {
   isLoaded = false;
   userLikes: any[] = [];
   hasLikes: boolean;
-  constructor(private userService: UserService, private cookieService: CookieService, private giphyService: GiphyService) {
+  uploads: any[] = [];
+  constructor(private userService: UserService, private cookieService: CookieService, private giphyService: GiphyService, private gifService: GifService) {
     this.userService.getUser().then((response) => {
-      console.log(response);
       this.username = response.username;
       this.email = response.email;
       this.firstName = response.firstName;
@@ -29,16 +30,21 @@ export class ProfileComponent implements OnInit {
       // this.user = response;
       this.isLoaded = true;
 
-      if (response.likes.length === 0) {
+      if (!response.likes) {
         this.hasLikes = false;
       } else {
         this.hasLikes = true;
-        response.likes.map((like) => {
-          this.giphyService.getGifById(like).then((gif) => {
-            this.userLikes.push(gif.data.images.fixed_height.url);
-          });
-        });
+        // response.likes.map((like) => {
+        //   this.giphyService.getGifById(like).then((gif) => {
+        //     this.userLikes.push(gif.data.images.fixed_height.url);
+        //   });
+        // });
+        this.userLikes = response.likes;
       }
+    });
+    this.gifService.getUploads().then((res) => {
+      this.uploads = res;
+      console.log(this.uploads);
     });
   }
 
