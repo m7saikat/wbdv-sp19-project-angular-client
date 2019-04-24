@@ -35,6 +35,7 @@ export class HomeComponent implements OnInit {
           //   });
           // });
           this.userLikes = response.likes;
+          console.log('^^^', this.userLikes);
         }
       });
     }
@@ -44,8 +45,13 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  onGifClick(gifId) {
-    this.router.navigate(['gif', gifId]);
+  onGifClick(gifId, gifUrl) {
+    this.router.navigate(['gif', gifId], { queryParams: { url: gifUrl } });
+  }
+
+  onFavGifClick(gifId) {
+    console.log(gifId.split("/")[4]);
+    this.router.navigate(['gif', gifId.split("/")[4]], { queryParams: { url: gifId } });
   }
 
 }

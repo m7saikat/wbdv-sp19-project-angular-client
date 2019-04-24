@@ -107,6 +107,17 @@ export class UserService {
     }).then((response) => response.json());
   }
 
+  unlikeGif(info){
+    return fetch(this.backendURL + "api/unlike", {
+      method: "PUT",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(info)
+    }).then((response) => response.json());
+  }
+
   getAllUsers = () => {
     return fetch(this.backendURL + 'api/user', {
       method: 'get',

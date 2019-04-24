@@ -30,6 +30,19 @@ export class GifService {
     }).then((response) => response.json());
   }
 
+  deleteComment(commentId){
+    return fetch(this.backendURL + 'api/comment', {
+      method: 'DELETE',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        commentId
+      })
+    }).then((response) => response.json());
+  }
+
   getComments(gifId) {
     return fetch(this.backendURL + 'api/gif/comment/' + gifId, {
       credentials: 'include',

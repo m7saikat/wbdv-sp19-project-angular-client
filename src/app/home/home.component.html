@@ -10,7 +10,7 @@
           <div class="col-sm-1 col-md-3" *ngFor="let like of userLikes">
             <div class="card mt-2 border-0 gif-cards">
               <div class="card-body gif-cards-body">
-                <img class="card-img" src="{{like}}" height="250px" width="140px" (click)="onGifClick(like.data.id)">
+                <img class="card-img" src="{{like}}" height="250px" width="140px" (click)="onFavGifClick(like)">
                 <!--like.data.images.fixed_height.url-->
               </div>
             </div>
@@ -33,7 +33,7 @@
           <div class="col-sm-1 col-md-3" *ngFor="let gif of gifs">
             <div class="card mt-2 border-0 gif-cards">
               <div class="card-body gif-cards-body">
-                <img class="card-img" src="{{gif.images.fixed_height.url}}" height="250px" width="140px" (click)="onGifClick(gif.id)">
+                <img class="card-img" src="{{gif.images.fixed_height.url}}" height="250px" width="140px" (click)="onGifClick(gif.id, gif.images.fixed_height.url)">
               </div>
             </div>
         </div>
