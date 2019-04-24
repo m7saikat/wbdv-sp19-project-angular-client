@@ -20,7 +20,7 @@ export class ProfileComponent implements OnInit {
   isLoaded = false;
   userLikes: any[] = [];
   hasLikes: boolean;
-  uploads: any[];
+  uploads: any[] = [];
   constructor(private userService: UserService, private cookieService: CookieService, private giphyService: GiphyService, private gifService: GifService) {
     this.userService.getUser().then((response) => {
       this.username = response.username;

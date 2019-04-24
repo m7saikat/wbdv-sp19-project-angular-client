@@ -15,7 +15,7 @@ export class UserComponent implements OnInit {
   user;
   hasLikes = false;
   userLikes = [];
-  uploads: any[];
+  uploads: any[] = [];
   constructor(private userService: UserService,
               private activatedRoute: ActivatedRoute,
               private giphyService: GiphyService, private gifService: GifService) {
