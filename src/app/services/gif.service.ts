@@ -71,4 +71,12 @@ export class GifService {
       }
     }).then((response) => response.json());
   }
+  getUploadByUserId = (id) => {
+    return fetch(this.backendURL + '/created/' + id , {
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then((response) => response.json());
+  }
 }
