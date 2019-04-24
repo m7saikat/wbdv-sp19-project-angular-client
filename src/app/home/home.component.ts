@@ -25,15 +25,16 @@ export class HomeComponent implements OnInit {
 
     if(this.cookieValue !== ''){
       this.userService.getUser().then((response) => {
-        if (response.likes.length === 0){
+        if (!response.likes){
           this.hasLikes = false;
         } else{
           this.hasLikes = true;
-          response.likes.map((like) => {
-            this.giphyService.getGifById(like).then((gif) => {
-              this.userLikes.push(gif);
-            });
-          });
+          // response.likes.map((like) => {
+          //   this.giphyService.getGifById(like).then((gif) => {
+          //     this.userLikes.push(gif);
+          //   });
+          // });
+          this.userLikes = response.likes;
         }
       });
     }

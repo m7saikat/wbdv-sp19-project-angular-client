@@ -14,7 +14,7 @@ import {GifService} from '../services/gif.service';
 export class GifComponent implements OnInit {
 
   gifId: string;
-  gif = '';
+  gif: any;
   userId: any;
   displayGif;
   isCopyLinkClicked = false;
@@ -69,7 +69,8 @@ export class GifComponent implements OnInit {
 
   onLikeGifClick(){
     this.userService.likeGif({
-      gifId: this.gifId,
+      // gifId: this.gifId,
+      gifId: this.gif.images.fixed_height.url,
       userId: this.userId
     }).then((response) => {
     });

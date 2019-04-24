@@ -21,7 +21,6 @@ export class ProfileComponent implements OnInit {
   hasLikes: boolean;
   constructor(private userService: UserService, private cookieService: CookieService, private giphyService: GiphyService) {
     this.userService.getUser().then((response) => {
-      console.log(response);
       this.username = response.username;
       this.email = response.email;
       this.firstName = response.firstName;
@@ -29,15 +28,16 @@ export class ProfileComponent implements OnInit {
       // this.user = response;
       this.isLoaded = true;
 
-      if (response.likes.length === 0) {
+      if (!response.likes) {
         this.hasLikes = false;
       } else {
         this.hasLikes = true;
-        response.likes.map((like) => {
-          this.giphyService.getGifById(like).then((gif) => {
-            this.userLikes.push(gif.data.images.fixed_height.url);
-          });
-        });
+        // response.likes.map((like) => {
+        //   this.giphyService.getGifById(like).then((gif) => {
+        //     this.userLikes.push(gif.data.images.fixed_height.url);
+        //   });
+        // });
+        this.userLikes = response.likes;
       }
     });
   }

@@ -56,15 +56,16 @@ export class UserService {
   }
 
   setSession(response){
+    console.log('****',response);
     const expiresIn = moment().add(response.expiresIn, 'hours');
     console.log(expiresIn.format('LLL'));
     console.log("Moment", moment());
     console.log("ExpiresIn" ,expiresIn);
     localStorage.setItem("expiresIn", JSON.stringify(expiresIn));
     this.cookieService.set("token", response.token);
-    this.cookieService.set("username", response.user.user.username);
-    this.cookieService.set("role", response.user.user.role); // 'ADMIN', 'COMMONUSER','CONTENTCREATOR'
-    this.cookieService.set("userId", response.user.user._id);
+    this.cookieService.set("username", response.user.username);
+    this.cookieService.set("role", response.user.role); // 'ADMIN', 'COMMONUSER','CONTENTCREATOR'
+    this.cookieService.set("userId", response.user._id);
   }
 
   logout(){
