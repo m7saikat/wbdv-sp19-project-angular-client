@@ -20,6 +20,7 @@ export class GifComponent implements OnInit {
   isCopyLinkClicked = false;
   comments = [];
   cookieValue = '';
+  isAlreadyLiked = false;
 
   constructor(private route: ActivatedRoute, private giphyService: GiphyService, private router: Router, private userService: UserService,
               private cookieService: CookieService, private gifService: GifService) {
@@ -33,11 +34,18 @@ export class GifComponent implements OnInit {
         this.displayGif = true;
       });
 
+      this.userService.getUserById(this.cookieService.get("userId")).then((u) => {
+        u.likes.forEach((like) => {
+          if (like.includes(this.gifId)){
+            this.isAlreadyLiked = true;
+          }
+        });
+      })
+
       this.gifService.getComments(this.gifId).then((response) => {
         console.log(response);
         response.map((comment) => {
           this.userService.getUserById(comment.createdByuser).then((user) => {
-            console.log(user);
             this.comments.push({
               username: user.username,
               text: comment.text

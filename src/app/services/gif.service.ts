@@ -9,15 +9,15 @@ export class GifService {
   backendURL = '';
 
   constructor(private userService: UserService) {
-    // this.backendURL = 'http://localhost:4000/api';
-    this.backendURL = 'https://wbdv-sp19-gif-art-server.herokuapp.com/api';
+    this.backendURL = 'http://localhost:4000/';
+    // this.backendURL = 'https://wbdv-sp19-gif-art-server.herokuapp.com/api';
   }
 
   createComment(gifId, comment) {
     console.log('GifId', gifId);
     console.log('Comment', comment);
     console.log('Comment', typeof comment);
-    return fetch(this.backendURL + '/comment', {
+    return fetch(this.backendURL + 'api/comment', {
       method: 'POST',
       credentials: 'include',
       headers: {
@@ -31,7 +31,7 @@ export class GifService {
   }
 
   getComments(gifId) {
-    return fetch(this.backendURL + '/gif/comment/' + gifId, {
+    return fetch(this.backendURL + 'api/gif/comment/' + gifId, {
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json'
@@ -51,7 +51,7 @@ export class GifService {
         createdBy: user
       };
       console.log(body);
-      return fetch(this.backendURL + '/gif', {
+      return fetch(this.backendURL + 'api/gif', {
         method: 'POST',
         credentials: 'include',
         headers: {
@@ -65,7 +65,7 @@ export class GifService {
   }
 
   getUploads = () => {
-    return fetch(this.backendURL + '/created' , {
+    return fetch(this.backendURL + 'api/created' , {
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json'
@@ -73,7 +73,7 @@ export class GifService {
     }).then((response) => response.json());
   }
   getUploadByUserId = (id) => {
-    return fetch(this.backendURL + '/created/' + id , {
+    return fetch(this.backendURL + 'api/created/' + id , {
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json'

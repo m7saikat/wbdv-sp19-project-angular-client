@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
 
     if(this.cookieValue !== ''){
       this.userService.getUser().then((response) => {
-        if (!response.likes){
+        if (!response.likes || response.likes.length === 0){
           this.hasLikes = false;
         } else{
           this.hasLikes = true;

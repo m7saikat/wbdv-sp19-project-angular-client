@@ -10,12 +10,12 @@ export class UserService {
   backendURL = '';
 
   constructor(private cookieService: CookieService) {
-    // this.backendURL = 'http://localhost:4000/api';
-    this.backendURL = 'https://wbdv-sp19-gif-art-server.herokuapp.com/api';
+    this.backendURL = 'http://localhost:4000/';
+    // this.backendURL = 'https://wbdv-sp19-gif-art-server.herokuapp.com/api';
   }
 
   getUser() {
-    return fetch(this.backendURL+"/session/user", {
+    return fetch(this.backendURL+"api/session/user", {
       credentials: "include",
       headers: {
         "Content-Type": "application/json"
@@ -24,7 +24,7 @@ export class UserService {
   }
 
   registerUser(user){
-    return fetch("https://wbdv-sp19-gif-art-server.herokuapp.com/register", {
+    return fetch(this.backendURL + "register", {
       method: "POST",
       credentials: "include",
       headers: {
@@ -35,7 +35,7 @@ export class UserService {
   }
 
   loginUser(user){
-    return fetch("https://wbdv-sp19-gif-art-server.herokuapp.com/login", {
+    return fetch(this.backendURL + "login", {
       method: "POST",
       credentials: "include",
       headers: {
@@ -46,7 +46,7 @@ export class UserService {
   }
 
   updateUser(userId, user){
-    return fetch(this.backendURL + "/user/" + userId, {
+    return fetch(this.backendURL + "api/user/" + userId, {
       method: "PUT",
       credentials: "include",
       headers: {
@@ -70,7 +70,7 @@ export class UserService {
   }
 
   logout(){
-    return fetch("https://wbdv-sp19-gif-art-server.herokuapp.com/logout", {
+    return fetch(this.backendURL + "logout", {
       method: "POST",
       credentials: "include",
       headers: {
@@ -97,7 +97,7 @@ export class UserService {
   }
 
   likeGif(info){
-    return fetch(this.backendURL + "/like", {
+    return fetch(this.backendURL + "api/like", {
       method: "PUT",
       credentials: "include",
       headers: {
@@ -108,7 +108,7 @@ export class UserService {
   }
 
   getAllUsers = () => {
-    return fetch(this.backendURL + '/user', {
+    return fetch(this.backendURL + 'api/user', {
       method: 'get',
       credentials: 'include',
       headers: {
@@ -117,7 +117,7 @@ export class UserService {
     }).then((response) => response.json());
   }
   getUserById = (userId) => {
-    return fetch(this.backendURL + '/user/'+ userId, {
+    return fetch(this.backendURL + 'api/user/'+ userId, {
       method: 'get',
       credentials: 'include',
       headers: {
@@ -127,7 +127,7 @@ export class UserService {
   }
 
   follow = (followerId) => {
-    return fetch(this.backendURL + '/follow', {
+    return fetch(this.backendURL + 'api/follow', {
       method: 'put',
       credentials: 'include',
       headers: {
@@ -140,7 +140,7 @@ export class UserService {
   }
   unfollow = (followerId) => {
     console.log("inside unfollow");
-    return fetch(this.backendURL + '/unfollow', {
+    return fetch(this.backendURL + 'api/unfollow', {
       method: 'put',
       credentials: 'include',
       headers: {
@@ -156,7 +156,7 @@ export class UserService {
   }
 
   deleteUser = (userId) => {
-    return fetch(this.backendURL + '/user/' + userId, {
+    return fetch(this.backendURL + 'api/user/' + userId, {
       method: 'DELETE',
       credentials: 'include',
       headers: {
@@ -169,7 +169,7 @@ export class UserService {
   }
 
   createUser = (user) => {
-    return fetch(this.backendURL + '/user' , {
+    return fetch(this.backendURL + 'api/user' , {
       method: 'POST',
       credentials: 'include',
       headers: {
