@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../services/user.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {GiphyService} from '../services/giphy.service';
 import {GifService} from '../services/gif.service';
 
@@ -18,9 +18,9 @@ export class UserComponent implements OnInit {
   uploads: any[] = [];
   constructor(private userService: UserService,
               private activatedRoute: ActivatedRoute,
-              private giphyService: GiphyService, private gifService: GifService) {
+              private giphyService: GiphyService, private gifService: GifService, private router: Router) {
     this.activatedRoute.params.subscribe((params) => {
-      this.userId = params.userId;
+      this.userId = params.profileId;
       this.userService.getUserById(this.userId).then((response) => {
         this.user = response;
         this.isLoaded = true;
@@ -43,6 +43,10 @@ export class UserComponent implements OnInit {
 
 
 
+  }
+
+  goToUserUploadGif = (gifUrl) => {
+    this.router.navigate(['/gif/upload/', {gifUrl}]);
   }
 
   ngOnInit() {

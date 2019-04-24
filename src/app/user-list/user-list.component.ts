@@ -16,9 +16,10 @@ export class UserListComponent implements OnInit {
   constructor(private userService: UserService, private cookieService: CookieService, private activatedRoute: ActivatedRoute, private router: Router) {
     this.activatedRoute.params.subscribe((params) => {
       this.userToSearch = params.userName;
-    });
-    this.userService.getUser().then((response) => {
-      this.currentUser = response;
+      this.userService.getUser().then((response) => {
+        this.currentUser = response;
+        console.log(this.currentUser);
+      });
     });
   }
   follow = (followerId) => {
@@ -41,16 +42,16 @@ export class UserListComponent implements OnInit {
     this.userService.getAllUsers().then((users) => {
       this.allUsers = users;
       this.allUsers.map((user) => {
-            console.log(user.username);
             if (user.username.includes(this.userToSearch)
               || (user.firstName && user.firstName.includes(this.userToSearch)) ||
               (user.lastName && user.lastName.includes(this.userToSearch))) {
               this.searchedUsers.push(user);
+              console.log(this.searchedUsers);
             }
         });
       });
     }
     goToUser(userId) {
-      this.router.navigate(['/search/user/' + userId]);
+      this.router.navigate(['/profile/' + userId]);
     }
 }

@@ -23,6 +23,7 @@ import { AdminEditUserComponent } from './admin-edit-user/admin-edit-user.compon
 import { AdminCreateUserComponent } from './admin-create-user/admin-create-user.component';
 import { SocialLoginModule, AuthServiceConfig } from 'angularx-social-login';
 import { GoogleLoginProvider} from 'angularx-social-login';
+import { UserUploadGifComponent } from './user-upload-gif/user-upload-gif.component';
 
 // const googleLoginOptions: LoginOpt = {
 //   scope: 'profile email'
@@ -54,7 +55,8 @@ export function provideConfig() {
     NewsFeedComponent,
     AdminUserPageComponent,
     AdminEditUserComponent,
-    AdminCreateUserComponent
+    AdminCreateUserComponent,
+    UserUploadGifComponent
   ],
   imports: [
     BrowserModule,

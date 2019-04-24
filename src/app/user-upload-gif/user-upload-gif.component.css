@@ -1,0 +1,82 @@
+body{
+  height:100vh;
+  background-color:black;
+  overflow-x: hidden;
+  /*overflow-y: hidden;*/
+}
+
+h5{
+  color:#A6A6A6;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bolder;
+  font-size: 1rem;
+}
+
+.source-url{
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  overflow-wrap: break-word;
+}
+
+textarea{
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+}
+
+.gif-cards{
+  border-radius: 0;
+}
+
+.share-items{
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+}
+
+.gif-cards-body{
+  padding: 0;
+  margin: 0;
+}
+
+#link-form{
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  background-color: rgb(38,38,38);
+  padding: 3%;
+}
+
+#link-form label {
+  font-size: small;
+}
+
+.form-header{
+  font-weight: bolder;
+  font-size: 3vh;
+}
+
+.basic-addon2{
+  background-color: rgb(129,0,255)!important;
+  color: white;
+}
+
+.close-icon{
+  font-size: 4vh;
+}
+
+#comment-btn{
+  width:100%;
+  background-color:rgb(80,80,80);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 0!important;
+}
+
+.comment{
+  font-family: 'Poppins', sans-serif;
+  color: white;
+}
+
+hr{
+  border: 1px solid rgb(80,80,80);
+}
