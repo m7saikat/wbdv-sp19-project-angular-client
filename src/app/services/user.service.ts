@@ -10,8 +10,8 @@ export class UserService {
   backendURL = '';
 
   constructor(private cookieService: CookieService) {
-    this.backendURL = 'http://localhost:4000/';
-    // this.backendURL = 'https://wbdv-sp19-gif-art-server.herokuapp.com/api';
+    // this.backendURL = 'http://localhost:4000/';
+    this.backendURL = 'https://wbdv-sp19-gif-art-server.herokuapp.com/api';
   }
 
   getUser() {
