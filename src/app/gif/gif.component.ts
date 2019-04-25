@@ -117,9 +117,10 @@ export class GifComponent implements OnInit {
     });
   }
 
-  onDelComment(commentId){
+  onDelComment(commentId) {
     this.gifService.deleteComment(commentId).then((res) => {
-      this.comments.filter(comment => comment._id !== commentId);
+      console.log("delete comment", res);
+      this.comments.filter(comment => comment.id !== commentId);
     });
   }
 }
