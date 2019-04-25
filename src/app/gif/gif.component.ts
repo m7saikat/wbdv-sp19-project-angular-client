@@ -14,14 +14,24 @@ import {GifService} from '../services/gif.service';
 export class GifComponent implements OnInit {
 
   gifId: string;
-  gif = '';
+  gif: any;
   userId: any;
   displayGif;
   isCopyLinkClicked = false;
   comments = [];
+  cookieValue = '';
+  isAlreadyLiked = false;
+  url = '';
 
   constructor(private route: ActivatedRoute, private giphyService: GiphyService, private router: Router, private userService: UserService,
               private cookieService: CookieService, private gifService: GifService) {
+    this.cookieValue = this.cookieService.get("username");
+    this.route
+      .queryParams
+      .subscribe(params => {
+        // Defaults to 0 if no query param provided.
+        this.url = params['url'];
+      });
     this.route.params.subscribe((params) => {
       this.gifId = params.gifId;
       this.displayGif = false;
@@ -31,14 +41,23 @@ export class GifComponent implements OnInit {
         this.displayGif = true;
       });
 
+      this.userService.getUserById(this.cookieService.get("userId")).then((u) => {
+        u.likes.forEach((like) => {
+          if (like.includes(this.gifId)){
+            this.isAlreadyLiked = true;
+          }
+        });
+      })
+
       this.gifService.getComments(this.gifId).then((response) => {
         console.log(response);
         response.map((comment) => {
           this.userService.getUserById(comment.createdByuser).then((user) => {
-            console.log(user);
             this.comments.push({
+              id: comment._id,
               username: user.username,
-              text: comment.text
+              text: comment.text,
+              createdByuser: comment.createdByuser
             });
           });
         });
@@ -46,7 +65,7 @@ export class GifComponent implements OnInit {
     });
 
     this.userId = this.cookieService.get("userId");
-
+    console.log(this.userId);
 
   }
 
@@ -65,11 +84,24 @@ export class GifComponent implements OnInit {
     this.isCopyLinkClicked = false;
   }
 
-  onLikeGifClick(){
+  onLikeGifClick() {
+    this.isAlreadyLiked = true;
     this.userService.likeGif({
-      gifId: this.gifId,
+      // gifId: this.gifId,
+      gifId: this.gif.images.fixed_height.url,
       userId: this.userId
     }).then((response) => {
+    });
+  }
+
+  onUnLikeGifClick() {
+    this.isAlreadyLiked = false;
+    this.userService.unlikeGif({
+      // gifId: this.gifId,
+      gifUrl: this.url,
+      userId: this.userId
+    }).then((response) => {
+      console.log(response);
     });
   }
 
@@ -82,6 +114,12 @@ export class GifComponent implements OnInit {
         text: f.value.comment
             });
 
+    });
+  }
+
+  onDelComment(commentId){
+    this.gifService.deleteComment(commentId).then((res) => {
+      this.comments.filter(comment => comment._id !== commentId);
     });
   }
 }

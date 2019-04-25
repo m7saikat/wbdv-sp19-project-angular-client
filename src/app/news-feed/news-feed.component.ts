@@ -25,14 +25,19 @@ export class NewsFeedComponent implements OnInit {
           this.userService.getUserById(f).then((response) => {
             this.followers.push(response);
             for (const like of response.likes) {
-              this.giphyService.getGifById(like).then((res) => {
-                const r = {
-                  username : response.username ,
-                  link : res.data.images.fixed_height.url
-                };
-                this.gifs.push(r);
-                console.log(this.gifs);
-              });
+              // this.giphyService.getGifById(like).then((res) => {
+              //   const r = {
+              //     username : response.username ,
+              //     link : res.data.images.fixed_height.url,
+              //     id : like
+              //   };
+              const r = {
+                username : response.username,
+                link: like
+              };
+              this.gifs.push(r);
+              console.log(this.gifs);
+              // });
             }
           });
         }
@@ -42,7 +47,7 @@ export class NewsFeedComponent implements OnInit {
 
   ngOnInit() {
   }
-  onGifClick(gifId){
+  onGifClick(gifId) {
     this.router.navigate(['gif', gifId]);
   }
   getGifById = (gifId) => {

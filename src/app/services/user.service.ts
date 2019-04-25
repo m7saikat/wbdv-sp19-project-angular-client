@@ -10,11 +10,12 @@ export class UserService {
   backendURL = '';
 
   constructor(private cookieService: CookieService) {
-    this.backendURL = 'http://localhost:4000/api';
+    // this.backendURL = 'http://localhost:4000/';
+    this.backendURL = 'https://wbdv-sp19-gif-art-server.herokuapp.com/';
   }
 
   getUser() {
-    return fetch(this.backendURL+"/session/user", {
+    return fetch(this.backendURL+"api/session/user", {
       credentials: "include",
       headers: {
         "Content-Type": "application/json"
@@ -23,7 +24,7 @@ export class UserService {
   }
 
   registerUser(user){
-    return fetch("http://localhost:4000/register", {
+    return fetch(this.backendURL + "register", {
       method: "POST",
       credentials: "include",
       headers: {
@@ -34,7 +35,7 @@ export class UserService {
   }
 
   loginUser(user){
-    return fetch("http://localhost:4000/login", {
+    return fetch(this.backendURL + "login", {
       method: "POST",
       credentials: "include",
       headers: {
@@ -45,7 +46,7 @@ export class UserService {
   }
 
   updateUser(userId, user){
-    return fetch(this.backendURL + "/user/" + userId, {
+    return fetch(this.backendURL + "api/user/" + userId, {
       method: "PUT",
       credentials: "include",
       headers: {
@@ -55,19 +56,21 @@ export class UserService {
     }).then((response) => response.json());
   }
 
-  setSession(response){
+  setSession(response) {
+    console.log('in  user service', response);
     const expiresIn = moment().add(response.expiresIn, 'hours');
     console.log(expiresIn.format('LLL'));
     console.log("Moment", moment());
     console.log("ExpiresIn" ,expiresIn);
     localStorage.setItem("expiresIn", JSON.stringify(expiresIn));
     this.cookieService.set("token", response.token);
-    this.cookieService.set("username", response.user.user.username);
-    this.cookieService.set("userId", response.user.user._id);
+    this.cookieService.set("username", response.user.username);
+    this.cookieService.set("role", response.user.role); // 'ADMIN', 'COMMONUSER','CONTENTCREATOR'
+    this.cookieService.set("userId", response.user._id);
   }
 
   logout(){
-    return fetch("http://localhost:4000/logout", {
+    return fetch(this.backendURL + "logout", {
       method: "POST",
       credentials: "include",
       headers: {
@@ -94,7 +97,18 @@ export class UserService {
   }
 
   likeGif(info){
-    return fetch(this.backendURL + "/like", {
+    return fetch(this.backendURL + "api/like", {
+      method: "PUT",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(info)
+    }).then((response) => response.json());
+  }
+
+  unlikeGif(info){
+    return fetch(this.backendURL + "api/unlike", {
       method: "PUT",
       credentials: "include",
       headers: {
@@ -105,7 +119,7 @@ export class UserService {
   }
 
   getAllUsers = () => {
-    return fetch(this.backendURL + '/user', {
+    return fetch(this.backendURL + 'api/user', {
       method: 'get',
       credentials: 'include',
       headers: {
@@ -114,7 +128,7 @@ export class UserService {
     }).then((response) => response.json());
   }
   getUserById = (userId) => {
-    return fetch(this.backendURL + '/user/'+ userId, {
+    return fetch(this.backendURL + 'api/user/'+ userId, {
       method: 'get',
       credentials: 'include',
       headers: {
@@ -152,7 +166,7 @@ export class UserService {
 
 
   follow = (followerId) => {
-    return fetch(this.backendURL + '/follow', {
+    return fetch(this.backendURL + 'api/follow', {
       method: 'put',
       credentials: 'include',
       headers: {
@@ -165,14 +179,14 @@ export class UserService {
   }
   unfollow = (followerId) => {
     console.log("inside unfollow");
-    return fetch(this.backendURL + '/unfollow', {
+    return fetch(this.backendURL + 'api/unfollow', {
       method: 'put',
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },
       body : JSON.stringify({
-        followId: followerId
+        unfollowId: followerId
       })
     }).then((response) => {
       console.log(response);
@@ -181,7 +195,7 @@ export class UserService {
   }
 
   deleteUser = (userId) => {
-    return fetch(this.backendURL + '/user/' + userId, {
+    return fetch(this.backendURL + 'api/user/' + userId, {
       method: 'DELETE',
       credentials: 'include',
       headers: {
@@ -194,7 +208,7 @@ export class UserService {
   }
 
   createUser = (user) => {
-    return fetch(this.backendURL + '/user' , {
+    return fetch(this.backendURL + 'api/user' , {
       method: 'POST',
       credentials: 'include',
       headers: {
