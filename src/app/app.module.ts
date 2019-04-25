@@ -8,7 +8,7 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SearchedGifsComponent } from './searched-gifs/searched-gifs.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule} from '@angular/forms';
 import { GifComponent } from './gif/gif.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -23,16 +23,17 @@ import { AdminEditUserComponent } from './admin-edit-user/admin-edit-user.compon
 import { AdminCreateUserComponent } from './admin-create-user/admin-create-user.component';
 import { SocialLoginModule, AuthServiceConfig } from 'angularx-social-login';
 import { GoogleLoginProvider} from 'angularx-social-login';
+import { ResetpasswordComponent } from './reset-password/resetpassword.component';
 import { UserUploadGifComponent } from './user-upload-gif/user-upload-gif.component';
 
 // const googleLoginOptions: LoginOpt = {
 //   scope: 'profile email'
 // };
 
-let config = new AuthServiceConfig([
+const config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
-    provider: new GoogleLoginProvider("950601830079-k48proe2ml618ce918k5it6uo15ib0dq.apps.googleusercontent.com")
+    provider: new GoogleLoginProvider('950601830079-k48proe2ml618ce918k5it6uo15ib0dq.apps.googleusercontent.com')
   }]);
 
 export function provideConfig() {
@@ -56,6 +57,7 @@ export function provideConfig() {
     AdminUserPageComponent,
     AdminEditUserComponent,
     AdminCreateUserComponent,
+    ResetpasswordComponent,
     UserUploadGifComponent
   ],
   imports: [

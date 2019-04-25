@@ -137,6 +137,34 @@ export class UserService {
     }).then((response) => response.json());
   }
 
+  getUserByEmail = (email) => {
+    return fetch(this.backendURL + '/email/' + email, {
+      method: 'get',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then((response) => {
+      return response.json();
+    });
+  }
+
+  sendPasswordResetMail = (email, password) => {
+    // console.log("userId and Password service =-->", userId, password);
+    return fetch(this.backendURL + '/sendemail', {
+      method: 'POST',
+      credentials:'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email,
+        password
+      })
+    }).then(response => response.json());
+  }
+
+
   follow = (followerId) => {
     return fetch(this.backendURL + 'api/follow', {
       method: 'put',
@@ -190,5 +218,16 @@ export class UserService {
     }).then((response) => {
       return response.json();
     });
+  }
+
+  resetPassword = (user) => {
+    return fetch(this.backendURL + '/resetpassword  ', {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(user)
+    }).then( response => response.json());
   }
 }
