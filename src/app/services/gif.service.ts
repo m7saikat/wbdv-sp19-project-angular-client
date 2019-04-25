@@ -44,7 +44,7 @@ export class GifService {
   }
 
   getComments(gifId) {
-    return fetch(this.backendURL + 'api/gif/comment/' + gifId, {
+    return fetch(this.backendURL + 'api/gif/' + gifId +'/comment', {
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json'
