@@ -66,7 +66,6 @@ export class GifComponent implements OnInit {
 
     this.userId = this.cookieService.get("userId");
     console.log(this.userId);
-
   }
 
   ngOnInit() {
@@ -120,7 +119,7 @@ export class GifComponent implements OnInit {
   onDelComment(commentId) {
     this.gifService.deleteComment(commentId).then((res) => {
       console.log("delete comment", res);
-      this.comments.filter(comment => comment.id !== commentId);
+      this.comments = this.comments.filter(comment => comment.id !== commentId);
     });
   }
 }
