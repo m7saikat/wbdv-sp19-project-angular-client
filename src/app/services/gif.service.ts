@@ -10,7 +10,7 @@ export class GifService {
 
   constructor(private userService: UserService) {
     // this.backendURL = 'http://localhost:4000/';
-    this.backendURL = 'https://wbdv-sp19-gif-art-server.herokuapp.com/api';
+    this.backendURL = 'https://wbdv-sp19-gif-art-server.herokuapp.com/';
   }
 
   createComment(gifId, comment) {
@@ -44,7 +44,7 @@ export class GifService {
   }
 
   getComments(gifId) {
-    return fetch(this.backendURL + 'api/gif/' + gifId +'/comment', {
+    return fetch(this.backendURL + 'api/gif/' + gifId + '/comment', {
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json'
