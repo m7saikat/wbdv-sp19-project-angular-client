@@ -35,6 +35,11 @@
   border-radius: 0!important;
 }
 
+.forgotPassword {
+ color: deepskyblue;
+  text-align: right;
+}
+
 ::placeholder{
   font-size: 1.5vh;
 }

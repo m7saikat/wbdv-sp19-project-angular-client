@@ -20,6 +20,10 @@ export class LoginComponent implements OnInit {
     this.isLoginUnsuccessful = false;
   }
 
+  static forgotPassword() {
+    alert('Button clicked');
+  }
+
   signInWithGoogle(): void {
     // this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(res => {
     //   this.userService.getUserfromSocial(res.email).then(user=>

@@ -15,6 +15,7 @@ import {NewsFeedComponent} from './news-feed/news-feed.component';
 import {AdminUserPageComponent} from './admin-user-page/admin-user-page.component';
 import {AdminEditUserComponent} from './admin-edit-user/admin-edit-user.component';
 import {AdminCreateUserComponent} from './admin-create-user/admin-create-user.component';
+import {ResetpasswordComponent} from './reset-password/resetpassword.component';
 
 
 const routes: Routes = [
@@ -30,6 +31,7 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
+  {path: 'password/reset', component: ResetpasswordComponent},
   {path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService]},
   {path: 'user/:userName', pathMatch: 'full', component: UserListComponent},
   {path: 'search/user/:userId', pathMatch: 'full', component: UserComponent},
