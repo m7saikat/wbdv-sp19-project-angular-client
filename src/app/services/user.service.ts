@@ -138,7 +138,7 @@ export class UserService {
   }
 
   getUserByEmail = (email) => {
-    return fetch(this.backendURL + '/email/' + email, {
+    return fetch(this.backendURL + 'api/email/' + email, {
       method: 'get',
       credentials: 'include',
       headers: {
@@ -151,7 +151,7 @@ export class UserService {
 
   sendPasswordResetMail = (email, password) => {
     // console.log("userId and Password service =-->", userId, password);
-    return fetch(this.backendURL + '/sendemail', {
+    return fetch(this.backendURL + 'api/sendemail', {
       method: 'POST',
       credentials:'include',
       headers: {
@@ -221,7 +221,7 @@ export class UserService {
   }
 
   resetPassword = (user) => {
-    return fetch(this.backendURL + '/resetpassword  ', {
+    return fetch(this.backendURL + 'api/resetpassword  ', {
       method: 'POST',
       credentials: 'include',
       headers: {

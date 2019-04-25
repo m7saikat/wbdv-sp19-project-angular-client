@@ -30,7 +30,7 @@ export class GifService {
     }).then((response) => response.json());
   }
 
-  deleteComment(commentId){
+  deleteComment(commentId) {
     return fetch(this.backendURL + 'api/comment', {
       method: 'DELETE',
       credentials: 'include',
@@ -50,7 +50,6 @@ export class GifService {
         'Content-Type': 'application/json'
       }
     }).then((response) => response.json());
-
   }
   uploadGif = (title, url) => {
     console.log(title);
