@@ -11,6 +11,7 @@ export class SearchedGifsComponent implements OnInit {
 
   searchedTerm = '';
   gifs: any[];
+  gifsFound = false;
   constructor(private route: ActivatedRoute, private giphyService: GiphyService, private router: Router) {
     this.route.params.subscribe((params) => {
       this.searchedTerm = params.searchTerm;
@@ -18,6 +19,9 @@ export class SearchedGifsComponent implements OnInit {
 
       this.giphyService.getSearchedGifs(this.searchedTerm).then((response) => {
         this.gifs = response.data
+        if(this.gifs.length > 0){
+          this.gifsFound = true;
+        }
       })
     })
   }
