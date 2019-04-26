@@ -40,7 +40,7 @@
         <div class="col-sm-1 col-md-3">
           <br>
           <h5 class="share-items" (click)="onCopyLinkClick()" *ngIf="!isCopyLinkClicked"><i class="fa fa-link mr-2"></i> Copy Link</h5>
-          <!--<h5 class="share-items" (click)="onLikeGifClick()" *ngIf="!isCopyLinkClicked && cookieValue !== '' "><i class="fa fa-heart mr-2"></i> Like Gif</h5>-->
+          <h5 class="share-items" (click)="onLikeGifClick()" *ngIf="!isCopyLinkClicked && cookieValue !== '' "><i class="fa fa-heart mr-2"></i> Like Gif</h5>
           <h5 class="share-items" (click)="onDeleteGif()" *ngIf="!isCopyLinkClicked && cookieValue !== '' "><i class="fas fa-trash-alt delBtn mr-2"></i> Delete Gif</h5>
         </div>
       </div>
