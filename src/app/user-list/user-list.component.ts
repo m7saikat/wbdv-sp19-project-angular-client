@@ -13,14 +13,18 @@ export class UserListComponent implements OnInit {
   searchedUsers = [];
   userToSearch;
   currentUser;
+  isLoggedIn = false;
   constructor(private userService: UserService, private cookieService: CookieService, private activatedRoute: ActivatedRoute, private router: Router) {
     this.activatedRoute.params.subscribe((params) => {
       this.userToSearch = params.userName;
-      this.userService.getUser().then((response) => {
-        this.currentUser = response;
-        console.log(this.currentUser);
+      if(this.cookieService.get("username")){
+        this.isLoggedIn = true;
+        this.userService.getUser().then((response) => {
+          this.currentUser = response;
+          console.log(this.currentUser);
+        });
+      }
       });
-    });
   }
   follow = (followerId) => {
       this.userService.follow(followerId).then((response) => {

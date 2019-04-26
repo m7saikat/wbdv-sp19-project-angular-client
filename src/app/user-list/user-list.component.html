@@ -12,7 +12,7 @@
               <i class="fas fa-user"></i>     {{u.firstName}} {{u.lastName}}
               <a [ngStyle]="{'cursor':'pointer'}" (click)="goToUser(u._id)" > @{{u.username}}</a>
             </div>
-            <div class="float-right">
+            <div class="float-right" *ngIf="isLoggedIn">
               <div *ngIf="!currentUser.followers.includes(u._id)">
                 <i class="fas fa-user-plus" (click)="follow(u._id)"></i>
               </div>
