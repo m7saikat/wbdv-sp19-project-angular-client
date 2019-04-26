@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {CookieService} from 'ngx-cookie-service';
 import {UserService} from '../services/user.service';
+import {GifService} from '../services/gif.service';
 
 @Component({
   selector: 'app-user-upload-gif',
@@ -13,7 +14,7 @@ export class UserUploadGifComponent implements OnInit {
   gifUrl;
   gifTitle;
   cookieValue;
-  constructor(private route: ActivatedRoute, private cookieService: CookieService, private userService: UserService) {
+  constructor(private route: ActivatedRoute, private cookieService: CookieService, private userService: UserService, private gifService: GifService, private router: Router) {
     this.cookieValue = this.cookieService.get("username");
     this.gifUrl = this.route.snapshot.paramMap.get('gifUrl');
   }
@@ -37,6 +38,20 @@ export class UserUploadGifComponent implements OnInit {
     });
   }
   ngOnInit() {
+  }
+
+  onDeleteGif(){
+    console.log(this.cookieService.get("userId"))
+    this.gifService.getAllGifs().then((response) => {
+      response.map((res) => {
+        if (res.createdBy === this.cookieService.get("userId") && res.gifURl === this.gifUrl){
+          console.log('Matching', res);
+          this.gifService.deleteGif(res._id).then((r) => {
+            this.router.navigate(['profile', this.cookieService.get("userId")]);
+          });
+        }
+      });
+    });
   }
 
 }

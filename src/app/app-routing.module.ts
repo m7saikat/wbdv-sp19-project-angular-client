@@ -17,15 +17,17 @@ import {AdminEditUserComponent} from './admin-edit-user/admin-edit-user.componen
 import {AdminCreateUserComponent} from './admin-create-user/admin-create-user.component';
 import {ResetpasswordComponent} from './reset-password/resetpassword.component';
 import {UserUploadGifComponent} from './user-upload-gif/user-upload-gif.component';
+import {EditCommentComponent} from './edit-comment/edit-comment.component';
 
 
 const routes: Routes = [
-  {path: 'gif/upload', component: UserUploadGifComponent},
-  {path: 'admin-user-page' , component: AdminUserPageComponent},
-  {path: 'admin/edit-user/:userId', component: AdminEditUserComponent},
-  {path: 'admin/create-user', component: AdminCreateUserComponent},
+  {path: 'gif/upload', component: UserUploadGifComponent, canActivate: [AuthGuardService]},
+  {path: 'admin-user-page' , component: AdminUserPageComponent, canActivate: [AuthGuardService]},
+  {path: 'admin/edit-user/:userId', component: AdminEditUserComponent, canActivate: [AuthGuardService]},
+  {path: 'admin/create-user', component: AdminCreateUserComponent, canActivate: [AuthGuardService]},
   {path: 'gif/:gifId', component: GifComponent},
-  {path: 'newsfeed', component: NewsFeedComponent},
+  {path: 'gif/:gifId/comment/:commentId', component: EditCommentComponent},
+  {path: 'newsfeed', component: NewsFeedComponent, canActivate: [AuthGuardService]},
   {path: 'gif/search/:searchTerm', component: SearchedGifsComponent},
   {path: 'team', component: AboutUsComponent},
   {path: 'upload', component: UploadComponent, canActivate: [AuthGuardService]},

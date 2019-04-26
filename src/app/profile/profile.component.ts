@@ -4,6 +4,7 @@ import {NgForm} from '@angular/forms';
 import {CookieService} from 'ngx-cookie-service';
 import {GiphyService} from '../services/giphy.service';
 import {GifService} from '../services/gif.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -21,7 +22,7 @@ export class ProfileComponent implements OnInit {
   userLikes: any[] = [];
   hasLikes: boolean;
   uploads: any[] = [];
-  constructor(private userService: UserService, private cookieService: CookieService, private giphyService: GiphyService, private gifService: GifService) {
+  constructor(private userService: UserService, private cookieService: CookieService, private giphyService: GiphyService, private gifService: GifService, private router: Router) {
     this.userService.getUser().then((response) => {
       this.username = response.username;
       this.email = response.email;
@@ -61,6 +62,10 @@ export class ProfileComponent implements OnInit {
     this.userService.updateUser(this.cookieService.get("userId"), updatedUser).then((response) => {
       console.log(response);
     });
+  }
+
+  goToUserUploadGif = (gifUrl) => {
+    this.router.navigate(['/gif/upload/', {gifUrl}]);
   }
 
 }

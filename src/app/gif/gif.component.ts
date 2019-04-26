@@ -111,8 +111,8 @@ export class GifComponent implements OnInit {
       this.comments.push({
         id: res._id,
         username: this.cookieService.get("username"),
-        text: f.value.comment,
-        createdByuser: this.cookieService.get("userId")
+        text: res.text,
+        createdByuser: res.createdByuser
             });
 
     });
@@ -123,5 +123,9 @@ export class GifComponent implements OnInit {
       console.log("delete comment", res);
       this.comments = this.comments.filter(comment => comment.id !== commentId);
     });
+  }
+
+  onEditComment(commentId){
+    this.router.navigate(['gif', this.gifId, 'comment', commentId]);
   }
 }

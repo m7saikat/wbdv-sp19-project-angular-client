@@ -30,6 +30,30 @@ export class GifService {
     }).then((response) => response.json());
   }
 
+  findCommentById(commentId){
+    return fetch(this.backendURL + 'api/comment/' + commentId, {
+      method: 'GET',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then((response) => response.json());
+  }
+
+  editComment(commentId, comment){
+    return fetch(this.backendURL + 'api/comment', {
+      method: 'PUT',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        commentId,
+        comment
+      })
+    }).then((response) => response.json());
+  }
+
   deleteComment(commentId) {
     return fetch(this.backendURL + 'api/comment', {
       method: 'DELETE',
@@ -76,6 +100,16 @@ export class GifService {
     });
   }
 
+  deleteGif(gifId) {
+    return fetch(this.backendURL + 'api/gif/'+gifId , {
+      method: 'DELETE',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+  }
+
   getUploads = () => {
     return fetch(this.backendURL + 'api/created' , {
       credentials: 'include',
@@ -84,6 +118,16 @@ export class GifService {
       }
     }).then((response) => response.json());
   }
+
+getAllGifs = () => {
+  return fetch(this.backendURL + 'api/gif' , {
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }).then((response) => response.json());
+}
+
   getUploadByUserId = (id) => {
     return fetch(this.backendURL + 'api/created/' + id , {
       credentials: 'include',

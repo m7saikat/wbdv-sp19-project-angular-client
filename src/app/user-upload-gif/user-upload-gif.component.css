@@ -80,3 +80,8 @@ textarea{
 hr{
   border: 1px solid rgb(80,80,80);
 }
+
+.delBtn{
+  color: white;
+  font-size: 1rem;
+}

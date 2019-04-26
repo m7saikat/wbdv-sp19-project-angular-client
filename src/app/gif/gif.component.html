@@ -39,7 +39,7 @@
                 <h5>{{comment.username}}</h5>
                 <h6 class="comment">{{comment.text}}</h6>
                 <div *ngIf="comment.createdByuser === userId">
-                  <span><i class="fas fa-edit editBtn"></i></span>
+                  <span><i class="fas fa-edit editBtn" (click)="onEditComment(comment.id)"></i></span>
                   <span><i class="fas fa-trash-alt delBtn ml-2" (click)="onDelComment(comment.id)"></i></span>
                 </div>
                 <hr>

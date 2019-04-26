@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../services/user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-resetpassword',
@@ -9,7 +10,7 @@ import {UserService} from '../services/user.service';
 export class ResetpasswordComponent implements OnInit {
 
   passwordReset: boolean;
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private router: Router) {
     this.passwordReset = false;
   }
 
@@ -33,6 +34,9 @@ export class ResetpasswordComponent implements OnInit {
                     status => {
                       console.log('status ==>', status);
                       this.passwordReset = true;
+                      setTimeout(() => {
+                        this.router.navigate(['login']);
+                      }, 2000);
                     }
                   );
                 } else  {

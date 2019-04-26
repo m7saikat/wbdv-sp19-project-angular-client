@@ -25,6 +25,7 @@ import { SocialLoginModule, AuthServiceConfig } from 'angularx-social-login';
 import { GoogleLoginProvider} from 'angularx-social-login';
 import { ResetpasswordComponent } from './reset-password/resetpassword.component';
 import { UserUploadGifComponent } from './user-upload-gif/user-upload-gif.component';
+import { EditCommentComponent } from './edit-comment/edit-comment.component';
 
 // const googleLoginOptions: LoginOpt = {
 //   scope: 'profile email'
@@ -58,7 +59,8 @@ export function provideConfig() {
     AdminEditUserComponent,
     AdminCreateUserComponent,
     ResetpasswordComponent,
-    UserUploadGifComponent
+    UserUploadGifComponent,
+    EditCommentComponent
   ],
   imports: [
     BrowserModule,
