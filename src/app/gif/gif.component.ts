@@ -66,7 +66,6 @@ export class GifComponent implements OnInit {
 
     this.userId = this.cookieService.get("userId");
     console.log(this.userId);
-
   }
 
   ngOnInit() {
