@@ -106,11 +106,13 @@ export class GifComponent implements OnInit {
 
   onCommentSubmit(f: NgForm){
     this.gifService.createComment(this.gifId, f.value.comment).then((res) => {
-      console.log(res);
+      console.log('****', res);
 
       this.comments.push({
+        id: res._id,
         username: this.cookieService.get("username"),
-        text: f.value.comment
+        text: f.value.comment,
+        createdByuser: this.cookieService.get("userId")
             });
 
     });
